@@ -1,0 +1,35 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 0.5rem;
+  padding-right: 0.3rem;
+  margin-bottom: 1.5rem;
+
+  font-size: 1rem;
+  font-weight: bold;
+}
+.navbar > li {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.navbar > li:last-of-type {
+  margin-bottom: 0;
+}
+.navbar > li.active {
+  background-color: var(--light-black);
+  color: #fff;
+}
+.navbar > li:hover {
+  color: #fff;
+}
+.navbar > li > span {
+  letter-spacing: 0.5px;
+  margin-left: 1rem;
+}

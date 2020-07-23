@@ -1,0 +1,49 @@
+.playlistButton-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.6rem;
+
+  font-weight: bold;
+  color: var(--light-gray);
+  background-color: var(--light-gray);
+  transition: all 0.3s ease;
+  border: 0;
+  outline: 0;
+}
+
+.playlistButton-container > .icon-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+}
+
+.playlistButton-container > .bg-gradient {
+  background: rgb(85, 79, 194);
+  background: linear-gradient(
+    90deg,
+    rgba(85, 79, 194, 1) 19%,
+    rgba(107, 93, 195, 1) 46%,
+    rgba(148, 140, 199, 1) 100%
+  );
+}
+
+.playlistButton-container > span {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 32px;
+  width: 100%;
+  padding-left: 1rem;
+  text-align: start;
+  background-color: #000;
+  height: 100%;
+}
+
+.playlistButton-container:hover {
+  background-color: #fff;
+  color: #fff;
+}
