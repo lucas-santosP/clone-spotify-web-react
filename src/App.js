@@ -1,14 +1,14 @@
 import React from "react";
 
 import Sidebar from "./components/layout/Sidebar";
-import MainContent from "./components/layout/MainContent";
+import Main from "./components/layout/Main";
 import Footer from "./components/layout/Footer";
 
 function App() {
   return (
     <div className="app-container">
       <Sidebar />
-      <MainContent />
+      <Main />
       <Footer />
     </div>
   );
