@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles.css";
 
 const Navigation = () => {
+  const [currentPage, setCurrentPage] = useState("inicio");
+
   return (
     <ul className="navbar">
-      <li className="active">
+      <li
+        onClick={() => setCurrentPage("inicio")}
+        className={currentPage === "inicio" ? "active" : ""}
+      >
         <svg
           viewBox="0 0 512 512"
           width="24"
@@ -18,7 +23,10 @@ const Navigation = () => {
         </svg>
         <span>Início</span>
       </li>
-      <li>
+      <li
+        onClick={() => setCurrentPage("buscar")}
+        className={currentPage === "buscar" ? "active" : ""}
+      >
         <svg
           viewBox="0 0 512 512"
           width="24"
@@ -33,7 +41,10 @@ const Navigation = () => {
         </svg>
         <span>Buscar</span>
       </li>
-      <li>
+      <li
+        onClick={() => setCurrentPage("biblioteca")}
+        className={currentPage === "biblioteca" ? "active" : ""}
+      >
         <svg
           viewBox="0 0 512 512"
           width="24"

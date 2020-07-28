@@ -1,38 +1,38 @@
-main {
+.main-container {
   grid-area: main;
   position: relative;
   overflow-y: auto;
   background-color: #121212;
 }
-.content {
+.main-container > .content {
   position: relative;
   height: 100vh;
   padding-left: 2rem;
   padding-right: 1.2rem;
 }
-.content > section {
+.main-container > .content > section {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
 }
-.content > section .section-header {
+.main-container > .content > section .section-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   width: 100%;
   padding: 1rem 0;
 }
-.content > section .section-header .title {
+.main-container > .content > section .section-header .title {
   color: #fff;
   font-size: 1.35rem;
 }
-.content > section .section-header > a {
+.main-container > .content > section .section-header > a {
   font-weight: bold;
   font-size: 0.7rem;
   color: #9b9b9b;
 }
-.content > section .section-header a:hover {
+.main-container > .content > section .section-header a:hover {
   text-decoration: underline;
 }
 .section-cards {
@@ -50,6 +50,17 @@ main {
   width: 45%;
   min-width: 200px;
   max-width: 350px;
-  background-color: rgb(98, 98, 98);
+  background-color: rgb(47, 47, 47);
   margin: 0.75rem 0;
+}
+
+.main-container ::-webkit-scrollbar-track {
+  background-color: #181818 !important;
+}
+.main-container::-webkit-scrollbar {
+  width: 12px !important;
+  background: var(--dark-black) !important;
+}
+.main-container::-webkit-scrollbar-thumb {
+  background: #505050 !important;
 }

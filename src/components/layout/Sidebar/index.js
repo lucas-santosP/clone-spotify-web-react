@@ -1,9 +1,10 @@
 import React from "react";
 import "./styles.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowAltCircleDown } from "@fortawesome/free-regular-svg-icons";
 import Navigation from "./Navigation";
 import PlaylistOptions from "./PlaylistOptions";
-import InstallButton from "./InstallButton";
 import Playlists from "./Playlists";
 
 const Sidebar = () => {
@@ -28,7 +29,10 @@ const Sidebar = () => {
       <div className="container-relative">
         <Playlists />
 
-        <InstallButton />
+        <button className="btn-install">
+          <FontAwesomeIcon icon={faArrowAltCircleDown} color={"CurrentColor"} />
+          Instalar aplicativo
+        </button>
       </div>
     </nav>
   );
