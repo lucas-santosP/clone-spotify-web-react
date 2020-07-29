@@ -24,21 +24,26 @@
     justify-content: flex-start;
     position: relative;
     width: 100%;
-    margin-bottom: 0.6rem;
+    border-bottom: 0.3rem solid $dark-black;
+
     font-weight: bold;
     color: $light-gray;
     background-color: $light-gray;
 
     &:hover {
+      cursor: pointer;
       background-color: #fff;
       color: #fff;
+    }
+
+    & + button {
+      border-top: 0.3rem solid $dark-black;
     }
 
     > .btn-icon-bg {
       @extend %flex-center;
       height: 32px;
       width: 32px;
-
       &.bg-gradient {
         background: rgb(85, 79, 194);
         background: linear-gradient(
@@ -61,7 +66,7 @@
       font-size: 0.85rem;
       letter-spacing: 0.5px;
       font-weight: bold;
-      background-color: #000000;
+      background-color: $dark-black;
     }
   }
 }
