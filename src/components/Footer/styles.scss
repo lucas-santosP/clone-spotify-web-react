@@ -15,43 +15,6 @@ footer {
     cursor: pointer;
   }
 
-  > .audio-info {
-    @extend %flex-center;
-    position: relative;
-    padding-right: 2rem;
-
-    .img-cover {
-      max-height: 60px;
-      margin-right: 0.75rem;
-    }
-
-    .btn-love {
-      position: absolute;
-      top: 0;
-      right: 0;
-      transform: translateY(50%);
-      font-size: 0.9rem;
-    }
-  }
-
-  > .audio-info > .text {
-    @extend %flex-center;
-    flex-direction: column;
-    align-items: flex-start;
-
-    .artist {
-      font-size: 0.85rem;
-      color: $light-gray;
-      margin-top: 0.5rem;
-    }
-
-    .name:hover,
-    .artist:hover {
-      cursor: pointer;
-      text-decoration: underline;
-    }
-  }
-
   > .audio-controls {
     @extend %flex-center;
     flex-direction: column;
@@ -75,25 +38,28 @@ footer {
   > .audio-controls .btn-group {
     @extend %flex-center;
 
-    .btn-primary {
+    > button {
       color: $light-gray;
-      font-size: 1.5rem;
-
       &:hover {
         color: #fff;
       }
     }
+
+    .btn-primary {
+      font-size: 1.1rem;
+    }
+
     .btn-secondary {
-      color: #535353;
-      font-size: 1rem;
+      color: $light-gray;
+      font-size: 0.9rem;
       margin: 0 2rem;
     }
+
     .btn-play {
       margin: 0 2rem;
+      &:hover {
+        transform: scale(1.2);
+      }
     }
-  }
-
-  > .options {
-    // pain
   }
 }

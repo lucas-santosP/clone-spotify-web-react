@@ -1,0 +1,13 @@
+@import "../../../scss/variables.scss";
+@import "../../../scss/extends.scss";
+.audio-options-container {
+  @extend %flex-center;
+  > .btn {
+    margin: 0 0.5rem;
+    color: $light-gray;
+  }
+
+  > .btn-volume svg {
+    width: 16px;
+  }
+}

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./styles.scss";
 
+import InputRange from "../InputRange";
+
 const AudioProgress = (props) => {
   const audioLength = minuteToSecond(props.audioLength || "2:00");
   const isPlaying = props.isPlaying || true;
@@ -40,8 +42,7 @@ const AudioProgress = (props) => {
 
   useEffect(() => {
     let isDragging = false;
-    const inputRange = document.querySelector(".input-range");
-
+    const inputRange = document.querySelector("#audio-progress");
     inputRange.addEventListener("mousedown", () => (isDragging = true));
     inputRange.addEventListener("mouseup", () => (isDragging = false));
 
@@ -54,32 +55,21 @@ const AudioProgress = (props) => {
         });
       }
     }
-
     setInterval(updateProgressWhenPlaying, 100);
   }, []);
 
   return (
-    <div className="input-range-container">
-      <input
-        className="input-range"
-        step="0.1"
-        type="range"
-        min="0"
-        max="100"
-        value={currentPercent}
-        onChange={updateProgress}
-      />
-      <div className="progress-bar back"></div>
-      <div
-        className="progress-bar front"
-        style={{
-          width: currentPercent + "%",
-        }}
-      ></div>
-
+    <div className="audio-progress-container">
       <span className="time-text current-time">
         {secondsToMinute(currentSecond)}
       </span>
+
+      <InputRange
+        id={"audio-progress"}
+        value={currentPercent}
+        onChange={updateProgress}
+      />
+
       <span className="time-text max-time">{secondsToMinute(audioLength)}</span>
     </div>
   );
