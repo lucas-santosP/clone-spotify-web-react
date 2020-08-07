@@ -2,15 +2,12 @@ import React from "react";
 import "./styles.scss";
 
 import limitTextLength from "../../../utils/limitTextLength";
+import coverImg from "../../../assets/cover-example.jfif";
 
 const ContentCard = () => {
   return (
     <div className="content-card">
-      <img
-        className="cover-img"
-        src="https://i.scdn.co/image/ab67616d0000b27380880b62143e819e901d8465"
-        alt=""
-      />
+      <img className="cover-img" src={coverImg} alt="" />
 
       <span className="title">
         {limitTextLength("After Hours (Deluxe edition)", 16)}

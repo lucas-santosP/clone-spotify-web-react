@@ -1,0 +1,160 @@
+@import "../../../scss/variables.scss";
+@import "../../../scss/extends.scss";
+
+.input-range-container {
+  width: 100%;
+  position: relative;
+  height: 10px;
+
+  &:hover {
+    .progress-bar.front {
+      background-color: $light-green;
+    }
+  }
+
+  > .time-text {
+    color: $light-gray;
+    font-size: 0.8rem;
+    position: absolute;
+    top: 5px;
+
+    &.current-time {
+      left: 0;
+      transform: translate(-150%, -50%);
+    }
+    &.max-time {
+      right: 0;
+      transform: translate(150%, -50%);
+    }
+  }
+
+  > .progress-bar {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    width: calc(100% - 6px);
+    height: 4px;
+    pointer-events: none;
+    border-radius: 5px;
+    &.back {
+      background-color: #535353;
+    }
+    &.front {
+      background-color: $light-gray;
+    }
+  }
+
+  input[type="range"] {
+    height: 10px;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    width: 100%;
+    background-color: transparent;
+    -webkit-appearance: none;
+    cursor: default;
+    // $range-transition: all 100ms ease;
+
+    &:focus {
+      outline: none;
+    }
+
+    // track
+    &::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 4px;
+      cursor: pointer;
+      box-shadow: 0px 0px 0px #000000;
+      background: transparent;
+      border-radius: 5px;
+      border: 0px solid #000000;
+      // transition: $range-transition;
+      cursor: default;
+      position: relative;
+    }
+    &::-webkit-slider-runnable-track::before {
+      position: absolute;
+      content: "pain";
+      display: block;
+      background-color: red;
+      height: 50px;
+      width: 50px;
+    }
+
+    //circle
+    &::-webkit-slider-thumb {
+      visibility: hidden;
+    }
+    &:hover::-webkit-slider-thumb {
+      visibility: visible;
+      z-index: 5;
+      box-shadow: 0px 0px 0px #000000;
+      height: 15px;
+      width: 15px;
+      border-radius: 25px;
+      border: 1px solid $dark-gray;
+      background: #e6e6e6;
+      cursor: default;
+      -webkit-appearance: none;
+      margin-top: -5px;
+    }
+  }
+
+  // firefox - circle
+  input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px #000000;
+    background: $dark-gray;
+    border-radius: 1px;
+    border: 0px solid #000000;
+  }
+  input[type="range"]::-moz-range-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    height: 18px;
+    width: 18px;
+    border-radius: 25px;
+    border: 1px solid $dark-gray;
+    background: #e6e6e6;
+    cursor: pointer;
+  }
+
+  // input[type="range"]::-ms-track {
+  //   width: 100%;
+  //   height: 5px;
+  //   cursor: pointer;
+  //   animate: 0.2s;
+  //   background: transparent;
+  //   border-color: transparent;
+  //   color: transparent;
+  // }
+  // input[type="range"]::-ms-fill-lower {
+  //   background: #2497e3;
+  //   border: 0px solid #000000;
+  //   border-radius: 2px;
+  //   box-shadow: 0px 0px 0px #000000;
+  // }
+  // input[type="range"]::-ms-fill-upper {
+  //   background: #2497e3;
+  //   border: 0px solid #000000;
+  //   border-radius: 2px;
+  //   box-shadow: 0px 0px 0px #000000;
+  // }
+  // input[type="range"]::-ms-thumb {
+  //   margin-top: 1px;
+  //   box-shadow: 0px 0px 0px #000000;
+  //   border: 1px solid #2497e3;
+  //   height: 18px;
+  //   width: 18px;
+  //   border-radius: 25px;
+  //   background: #a1d0ff;
+  //   cursor: pointer;
+  // }
+  // input[type="range"]:focus::-ms-fill-lower {
+  //   background: #2497e3;
+  // }
+  // input[type="range"]:focus::-ms-fill-upper {
+  //   background: #2497e3;
+  // }
+}
