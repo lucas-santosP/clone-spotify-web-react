@@ -1,14 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useHistory, useLocation } from "react-router-dom";
 import "./styles.scss";
 
 const Navigation = () => {
+  const history = useHistory();
+  const location = useLocation();
+
   const [currentPage, setCurrentPage] = useState("inicio");
+
+  function changeCurrentPage(path) {
+    history.push(path);
+  }
+
+  useEffect(() => {
+    setCurrentPage(location.pathname);
+  }, [location.pathname]);
 
   return (
     <ul className="navigation-list">
       <li
-        onClick={() => setCurrentPage("inicio")}
-        className={currentPage === "inicio" ? "active" : ""}
+        onClick={() => changeCurrentPage("/home")}
+        className={currentPage === "/home" ? "active" : ""}
       >
         <svg
           viewBox="0 0 512 512"
@@ -24,8 +36,8 @@ const Navigation = () => {
         <span className="text">Início</span>
       </li>
       <li
-        onClick={() => setCurrentPage("buscar")}
-        className={currentPage === "buscar" ? "active" : ""}
+        onClick={() => changeCurrentPage("/search")}
+        className={currentPage === "/search" ? "active" : ""}
       >
         <svg
           viewBox="0 0 512 512"
@@ -42,8 +54,8 @@ const Navigation = () => {
         <span className="text">Buscar</span>
       </li>
       <li
-        onClick={() => setCurrentPage("biblioteca")}
-        className={currentPage === "biblioteca" ? "active" : ""}
+        onClick={() => changeCurrentPage("/my-library")}
+        className={currentPage === "/my-library" ? "active" : ""}
       >
         <svg
           viewBox="0 0 512 512"

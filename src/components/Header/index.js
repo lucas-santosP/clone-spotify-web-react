@@ -8,13 +8,16 @@ import ButtonUser from "./ButtonUser";
 const MainHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const mainScrolled = document.querySelector(".main-container");
+  function updateIsScrolled() {
+    if (document.querySelector(".app-main").scrollTop >= 50)
+      setIsScrolled(true);
+    else setIsScrolled(false);
+  }
 
-    mainScrolled.addEventListener("scroll", () => {
-      if (mainScrolled.scrollTop >= 50) setIsScrolled(true);
-      else setIsScrolled(false);
-    });
+  useEffect(() => {
+    document
+      .querySelector(".app-main")
+      .addEventListener("scroll", updateIsScrolled);
   }, []);
 
   return (

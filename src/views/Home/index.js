@@ -1,11 +1,10 @@
 import React from "react";
-import "./styles.scss";
 
 import ContentSection from "./ContentSection";
 
-const Main = () => {
+const Home = ({ albums }) => {
   return (
-    <main className="main-container">
+    <div>
       <ContentSection
         title={"Atalhos"}
         arrayItems={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
@@ -74,8 +73,8 @@ const Main = () => {
         title={"Suas músicas estão com saudade"}
         arrayItems={[1, 2]}
       />
-    </main>
+    </div>
   );
 };
 
-export default Main;
+export default Home;
