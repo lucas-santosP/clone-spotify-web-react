@@ -11,8 +11,7 @@ import Search from "./views/Search";
 import MyLibrary from "./views/MyLibrary";
 import LoadingView from "./components/ui/LoadingView";
 
-function Routes() {
-  const basePath = 'clone-spotify-web-react/'
+function Routes() { 
   const [albums, setAlbums] = useState([]);
   const [tags, setTags] = useState([]);
   const [tagsInChart, setTagsInChart] = useState([]);
@@ -20,7 +19,6 @@ function Routes() {
 
   useEffect(() => {
     async function fetchAll() {
-      console.log(process.env.PUBLIC_URL);
       const fetchedAlbums = await await albumServices.get();
       setAlbums([...fetchedAlbums]);
 
