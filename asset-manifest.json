@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/clone-spotify-web-react/static/css/main.bf04b32b.chunk.css",
+    "main.js": "/clone-spotify-web-react/static/js/main.266f8f2e.chunk.js",
+    "main.js.map": "/clone-spotify-web-react/static/js/main.266f8f2e.chunk.js.map",
+    "runtime-main.js": "/clone-spotify-web-react/static/js/runtime-main.c0ff7ef8.js",
+    "runtime-main.js.map": "/clone-spotify-web-react/static/js/runtime-main.c0ff7ef8.js.map",
+    "static/js/2.81f7e05d.chunk.js": "/clone-spotify-web-react/static/js/2.81f7e05d.chunk.js",
+    "static/js/2.81f7e05d.chunk.js.map": "/clone-spotify-web-react/static/js/2.81f7e05d.chunk.js.map",
+    "index.html": "/clone-spotify-web-react/index.html",
+    "precache-manifest.4e162fbf1b0f921808e1c451a99c340e.js": "/clone-spotify-web-react/precache-manifest.4e162fbf1b0f921808e1c451a99c340e.js",
+    "service-worker.js": "/clone-spotify-web-react/service-worker.js",
+    "static/css/main.bf04b32b.chunk.css.map": "/clone-spotify-web-react/static/css/main.bf04b32b.chunk.css.map",
+    "static/js/2.81f7e05d.chunk.js.LICENSE.txt": "/clone-spotify-web-react/static/js/2.81f7e05d.chunk.js.LICENSE.txt",
+    "static/media/chevron-left.svg": "/clone-spotify-web-react/static/media/chevron-left.bcb601f6.svg",
+    "static/media/chevron-right.svg": "/clone-spotify-web-react/static/media/chevron-right.0d0fcc88.svg",
+    "static/media/cover-example.jfif": "/clone-spotify-web-react/static/media/cover-example.11ee6d78.jfif",
+    "static/media/user.jpg": "/clone-spotify-web-react/static/media/user.765c55c5.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c0ff7ef8.js",
+    "static/js/2.81f7e05d.chunk.js",
+    "static/css/main.bf04b32b.chunk.css",
+    "static/js/main.266f8f2e.chunk.js"
+  ]
+}
