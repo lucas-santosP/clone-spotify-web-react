@@ -3,7 +3,7 @@ import "./styles.scss";
 
 import limitTextLength from "../../../utils/limitTextLength";
 
-const index = () => {
+const Playlists = () => {
   return (
     <ul className="playlists-list">
       <li>{limitTextLength("Sono Profundo", 24)}</li>
@@ -20,4 +20,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Playlists;

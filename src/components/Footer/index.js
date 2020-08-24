@@ -16,7 +16,7 @@ import AudioInfo from "./AudioInfo";
 import AudioOptions from "./AudioOptions";
 
 const Footer = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   function togglePlayingState() {
     setIsPlaying(!isPlaying);
@@ -47,7 +47,7 @@ const Footer = () => {
           </button>
         </div>
 
-        <AudioProgress />
+        <AudioProgress isPlaying={isPlaying} audioLength={"3:30"} />
       </div>
 
       <AudioOptions />

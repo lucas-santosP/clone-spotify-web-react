@@ -1,11 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import "./styles.scss";
 
 import InputRange from "../InputRange";
 
-const AudioProgress = (props) => {
-  const audioLength = minuteToSecond(props.audioLength || "2:00");
-  const isPlaying = props.isPlaying || true;
+const AudioProgress = ({isPlaying, audioLength = "2:00"}) => { 
+  const audioLengthInSeconds = minuteToSecond(audioLength);
+
 
   const [currentSecond, setCurrentSecond] = useState(0);
   const [currentPercent, setCurrentPercent] = useState(0);
@@ -14,9 +15,10 @@ const AudioProgress = (props) => {
     const newPercent = parseFloat(e.target.value, 10);
     setCurrentPercent(newPercent);
 
-    const newSecond = (newPercent * audioLength) / 100;
+    const newSecond = (newPercent * audioLengthInSeconds) / 100;
     setCurrentSecond(newSecond);
   }
+
   function secondsToMinute(duration) {
     const hrs = ~~(duration / 3600);
     const mins = ~~((duration % 3600) / 60);
@@ -28,6 +30,7 @@ const AudioProgress = (props) => {
     result += "" + secs;
     return result;
   }
+  
   function minuteToSecond(minute) {
     var parts = minute.split(":"),
       minutes = +parts[0],
@@ -36,27 +39,32 @@ const AudioProgress = (props) => {
   }
 
   useEffect(() => {
-    const newPercentValue = (currentSecond * 100) / audioLength;
+    const newPercentValue = (currentSecond * 100) / audioLengthInSeconds;
     setCurrentPercent(newPercentValue);
-  }, [currentSecond, audioLength]);
+  }, [currentSecond, audioLengthInSeconds]);
 
+  
+  let isDragging = false;
   useEffect(() => {
-    let isDragging = false;
     const inputRange = document.querySelector("#audio-progress");
     inputRange.addEventListener("mousedown", () => (isDragging = true));
     inputRange.addEventListener("mouseup", () => (isDragging = false));
 
+  }, [isPlaying]);
+  
+  useEffect(() => { 
     function updateProgressWhenPlaying() {
       if (!isDragging && isPlaying) {
         setCurrentSecond((currentSecond) => {
-          return currentSecond < audioLength
+          return currentSecond < audioLengthInSeconds
             ? currentSecond + 0.1
-            : audioLength;
+            : audioLengthInSeconds;
         });
       }
     }
     setInterval(updateProgressWhenPlaying, 100);
-  }, []);
+    
+  },[])
 
   return (
     <div className="audio-progress-container">
@@ -70,7 +78,7 @@ const AudioProgress = (props) => {
         onChange={updateProgress}
       />
 
-      <span className="time-text max-time">{secondsToMinute(audioLength)}</span>
+      <span className="time-text max-time">{secondsToMinute(audioLengthInSeconds)}</span>
     </div>
   );
 };

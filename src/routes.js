@@ -11,7 +11,7 @@ import Search from "./views/Search";
 import MyLibrary from "./views/MyLibrary";
 import LoadingView from "./components/ui/LoadingView";
 
-function Routes() { 
+function Routes() {
   const [albums, setAlbums] = useState([]);
   const [tags, setTags] = useState([]);
   const [tagsInChart, setTagsInChart] = useState([]);
