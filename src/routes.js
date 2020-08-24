@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
-import { albumServices, tagServices } from "./services/modules";
+import { albumServices, tagServices } from "./common/services/modules";
 
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";

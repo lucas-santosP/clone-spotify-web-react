@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.scss";
 
-import getRandomColor from "../../utils/getRandomColor";
+import getRandomColor from "../../common/utils/getRandomColor";
 import SectionHeader from "../../components/ui/SectionHeader";
 import Slider from "./Slider";
 

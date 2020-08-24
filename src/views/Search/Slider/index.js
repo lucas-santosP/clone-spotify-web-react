@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./styles.scss";
 
-import getRandomColor from "../../../utils/getRandomColor";
+import getRandomColor from "../../../common/utils/getRandomColor";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
