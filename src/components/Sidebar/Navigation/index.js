@@ -9,7 +9,9 @@ const Navigation = () => {
   const [currentPage, setCurrentPage] = useState("inicio");
 
   function changeCurrentPage(path) {
-    history.push(path);
+    if (location.pathname !== path) {
+      history.push(path);
+    }
   }
 
   useEffect(() => {
