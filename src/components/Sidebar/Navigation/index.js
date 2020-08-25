@@ -16,6 +16,7 @@ const Navigation = () => {
 
   useEffect(() => {
     setCurrentPage(location.pathname);
+    document.querySelector(".app-main").scrollTop = 0;
   }, [location.pathname]);
 
   return (
