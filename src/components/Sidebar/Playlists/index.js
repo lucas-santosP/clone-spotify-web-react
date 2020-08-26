@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.scss";
 
-import limitTextLength from "../../../common/utils/limitTextLength";
+import { limitTextLength } from "../../../common/utils";
 
 const Playlists = () => {
   return (
