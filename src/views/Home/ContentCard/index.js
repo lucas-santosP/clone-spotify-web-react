@@ -1,16 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./styles.scss";
 
 import { limitTextLength } from "../../../common/utils";
 import coverImg from "../../../assets/cover-example.jfif";
 
 const ContentCard = () => {
+  const [currentTextLimit, setCurrentTextLimit] = useState(16);
+
+  function updateCurrentTextLimit() {
+    const cardElement = document.querySelector(".content-card");
+    setCurrentTextLimit(parseInt(cardElement.offsetWidth / 12));
+  }
+
+  useEffect(() => {
+    updateCurrentTextLimit();
+
+    window.addEventListener("resize", updateCurrentTextLimit);
+  }, []);
+
   return (
-    <div className="content-card">
+    <div className="content-card" title="After Hours (Deluxe edition)">
       <img className="cover-img" src={coverImg} alt="" />
 
       <span className="title">
-        {limitTextLength("After Hours (Deluxe edition)", 16)}
+        {limitTextLength(
+          "After Hours (Deluxe edition)asdasdasd",
+          currentTextLimit
+        )}
       </span>
       <span className="subtitle">The Weeknd</span>
 
