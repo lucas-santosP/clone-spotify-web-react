@@ -47,7 +47,7 @@ const Footer = () => {
           </button>
         </div>
 
-        <AudioProgress isPlaying={isPlaying} audioLength={"3:30"} />
+        <AudioProgress audioLength={"3:30"} />
       </div>
 
       <AudioOptions />

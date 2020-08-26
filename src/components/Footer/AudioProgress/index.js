@@ -1,12 +1,10 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import "./styles.scss";
 
 import InputRange from "../InputRange";
 
-const AudioProgress = ({isPlaying, audioLength = "2:00"}) => { 
+const AudioProgress = ({ audioLength = "2:00" }) => {
   const audioLengthInSeconds = minuteToSecond(audioLength);
-
 
   const [currentSecond, setCurrentSecond] = useState(0);
   const [currentPercent, setCurrentPercent] = useState(0);
@@ -30,7 +28,7 @@ const AudioProgress = ({isPlaying, audioLength = "2:00"}) => {
     result += "" + secs;
     return result;
   }
-  
+
   function minuteToSecond(minute) {
     var parts = minute.split(":"),
       minutes = +parts[0],
@@ -42,29 +40,6 @@ const AudioProgress = ({isPlaying, audioLength = "2:00"}) => {
     const newPercentValue = (currentSecond * 100) / audioLengthInSeconds;
     setCurrentPercent(newPercentValue);
   }, [currentSecond, audioLengthInSeconds]);
-
-  
-  let isDragging = false;
-  useEffect(() => {
-    const inputRange = document.querySelector("#audio-progress");
-    inputRange.addEventListener("mousedown", () => (isDragging = true));
-    inputRange.addEventListener("mouseup", () => (isDragging = false));
-
-  }, [isPlaying]);
-  
-  useEffect(() => { 
-    function updateProgressWhenPlaying() {
-      if (!isDragging && isPlaying) {
-        setCurrentSecond((currentSecond) => {
-          return currentSecond < audioLengthInSeconds
-            ? currentSecond + 0.1
-            : audioLengthInSeconds;
-        });
-      }
-    }
-    setInterval(updateProgressWhenPlaying, 100);
-    
-  },[])
 
   return (
     <div className="audio-progress-container">
@@ -78,7 +53,9 @@ const AudioProgress = ({isPlaying, audioLength = "2:00"}) => {
         onChange={updateProgress}
       />
 
-      <span className="time-text max-time">{secondsToMinute(audioLengthInSeconds)}</span>
+      <span className="time-text max-time">
+        {secondsToMinute(audioLengthInSeconds)}
+      </span>
     </div>
   );
 };
