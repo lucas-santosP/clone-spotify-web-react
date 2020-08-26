@@ -1,9 +1,9 @@
 import React from "react";
 import "./styles.scss";
 
-import getRandomColor from "../../common/utils/getRandomColor";
 import SectionHeader from "../../components/ui/SectionHeader";
 import Slider from "./Slider";
+import GenresGrid from "./GenresGrid";
 
 const Search = ({ tags, tagsInChart }) => {
   return (
@@ -15,17 +15,7 @@ const Search = ({ tags, tagsInChart }) => {
 
       <section className="section">
         <SectionHeader title="Navegar por todas as seções" />
-        <ul className="genres-grid">
-          {tags.map((tag) => (
-            <li key={tag.name + tag.reach}>
-              <div
-                className="bg-grid"
-                style={{ backgroundColor: getRandomColor() }}
-              ></div>
-              <span className="text-grid">{tag.name}</span>
-            </li>
-          ))}
-        </ul>
+        <GenresGrid genres={tags} />
       </section>
     </div>
   );

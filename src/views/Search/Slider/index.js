@@ -15,7 +15,7 @@ const Slider = ({ slides }) => {
     "(0deg,rgb(195, 240, 200,0.5),rgb(195, 240, 200))",
   ];
 
-  function slideScrollX(direction) {
+  function slideTo(direction) {
     const sliderTrack = document.querySelector(".slider-track");
     const sliderTrackWidth = sliderTrack.scrollWidth;
 
@@ -64,7 +64,7 @@ const Slider = ({ slides }) => {
 
   return (
     <div className="slider-container">
-      <button className="btn-left" onClick={() => slideScrollX("left")}>
+      <button className="btn-left" onClick={() => slideTo("left")}>
         <FontAwesomeIcon icon={faChevronLeft} color={"#000"} />
       </button>
 
@@ -82,7 +82,7 @@ const Slider = ({ slides }) => {
         ))}
       </ul>
 
-      <button className="btn-right" onClick={() => slideScrollX("right")}>
+      <button className="btn-right" onClick={() => slideTo("right")}>
         <FontAwesomeIcon icon={faChevronRight} color={"#000"} />
       </button>
     </div>

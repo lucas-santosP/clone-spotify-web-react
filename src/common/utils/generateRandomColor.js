@@ -1,4 +1,4 @@
-export default function getRandomColor() {
+export default function generateRandomColor() {
   var letters = "0123456789ABCDEF";
   var color = "#";
   for (var i = 0; i < 6; i++) {
