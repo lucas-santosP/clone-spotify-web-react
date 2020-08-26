@@ -14,8 +14,11 @@ const ContentCard = () => {
 
   useEffect(() => {
     updateCurrentTextLimit();
-
     window.addEventListener("resize", updateCurrentTextLimit);
+
+    return () => {
+      window.removeEventListener("resize", updateCurrentTextLimit);
+    };
   }, []);
 
   return (
