@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import "./styles.scss";
 
-import getRandomColor from "../../../common/utils/getRandomColor";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
@@ -9,15 +8,25 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const Slider = ({ slides }) => {
+  const gradients = [
+    "(0deg,rgb(65, 0, 245,0.5),rgb(65, 0, 245))",
+    "(0deg,rgb(235, 30, 50,0.5),rgb(235, 30, 50))",
+    "(0deg,rgb(245, 155, 35,0.5),rgb(245, 155, 35))",
+    "(0deg,rgb(195, 240, 200,0.5),rgb(195, 240, 200))",
+  ];
+
   function slideScrollX(direction) {
     const sliderTrack = document.querySelector(".slider-track");
+    const sliderTrackWidth = sliderTrack.scrollWidth;
 
-    if (direction === "right")
-      sliderTrack.scrollBy(sliderTrack.scrollWidth / 2, 0);
-    else sliderTrack.scrollBy(-(sliderTrack.scrollWidth / 2), 0);
+    if (direction === "right") {
+      sliderTrack.scrollBy(sliderTrackWidth / 4, 0);
+    } else {
+      sliderTrack.scrollBy(-(sliderTrackWidth / 4), 0);
+    }
   }
 
-  function handleSlideScroll() {
+  function updateSliderButtonsVisibility() {
     const sliderTrack = document.querySelector(".slider-track");
     const btnRight = document.querySelector(".btn-right");
     const btnLeft = document.querySelector(".btn-left");
@@ -25,22 +34,32 @@ const Slider = ({ slides }) => {
     const minScroll = 0;
     const maxScroll = sliderTrack.scrollWidth;
     const currentScrollPosition = sliderTrack.scrollLeft;
-    const sliderTrackWith = sliderTrack.offsetWidth;
+    const sliderTrackWidth = sliderTrack.offsetWidth;
 
-    if (sliderTrackWith + currentScrollPosition >= maxScroll)
+    if (sliderTrackWidth + currentScrollPosition >= maxScroll) {
       btnRight.style.visibility = "hidden";
-    else btnRight.style.visibility = "visible";
+    } else {
+      btnRight.style.visibility = "visible";
+    }
 
-    if (currentScrollPosition <= minScroll) btnLeft.style.visibility = "hidden";
-    else btnLeft.style.visibility = "visible";
+    if (currentScrollPosition <= minScroll) {
+      btnLeft.style.visibility = "hidden";
+    } else {
+      btnLeft.style.visibility = "visible";
+    }
   }
 
   useEffect(() => {
-    handleSlideScroll();
+    const sliderTrack = document.querySelector(".slider-track");
+    updateSliderButtonsVisibility();
 
-    document
-      .querySelector(".slider-track")
-      .addEventListener("scroll", handleSlideScroll);
+    window.addEventListener("resize", updateSliderButtonsVisibility);
+    sliderTrack.addEventListener("scroll", updateSliderButtonsVisibility);
+
+    return () => {
+      window.removeEventListener("resize", updateSliderButtonsVisibility);
+      sliderTrack.removeEventListener("scroll", updateSliderButtonsVisibility);
+    };
   }, []);
 
   return (
@@ -50,15 +69,15 @@ const Slider = ({ slides }) => {
       </button>
 
       <ul className="slider-track">
-        {slides.map((slide) => (
+        {slides.map((slide, index) => (
           <li
             className="slide"
             key={slide.name + slide.reach}
             style={{
-              backgroundColor: getRandomColor(),
+              background: `linear-gradient${gradients[index]}`,
             }}
           >
-            <span>{slide.name}</span>
+            <span className="slide-text">{slide.name}</span>
           </li>
         ))}
       </ul>
