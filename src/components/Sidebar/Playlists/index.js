@@ -4,18 +4,31 @@ import "./styles.scss";
 import { limitTextLength } from "../../../common/utils";
 
 const Playlists = () => {
+  const playLists = [
+    "Sono Profundo",
+    "Concentração Perfeita",
+    "Slowly I Dissolve",
+    "Hora de dormir",
+    "Songs for sleep: Peaceful mind",
+    "Curtidas na Rádio",
+    "Release Me",
+    "Happiness",
+    "Indie Stage",
+    "This is The Weeknd",
+    "Alternative",
+    "Pop Rock",
+    "Post Rock Essentials",
+    "We Are Who We Are",
+    "Hype songs",
+    "Futuristic Electronic",
+    "This is Kid Cudi",
+  ];
+
   return (
     <ul className="playlists-list">
-      <li>{limitTextLength("Sono Profundo", 24)}</li>
-      <li>{limitTextLength("Concentração Perfeita", 24)}</li>
-      <li>{limitTextLength("Slowly i dissolve", 24)}</li>
-      <li>{limitTextLength("Hora de dormir", 24)}</li>
-      <li>{limitTextLength("M.O.O.N. - Dust [Official]", 24)}</li>
-      <li>{limitTextLength("Sadness", 24)}</li>
-      <li>{limitTextLength("Songs For Sleep: Peaceful mind", 24)}</li>
-      <li>{limitTextLength("Life Is Strange [2015]", 24)}</li>
-      <li>{limitTextLength("Curtidas na Rádio", 24)}</li>
-      <li>{limitTextLength("Release me", 24)}</li>
+      {playLists.map((playlistName, index) => (
+        <li key={playLists + index}>{limitTextLength(playlistName, 24)}</li>
+      ))}
     </ul>
   );
 };

@@ -9,7 +9,6 @@ const Home = () => {
   function getRandomAlbums() {
     const finalIndex = Math.floor(Math.random() * (50 - 5)) + 7;
     const initialIndex = Math.floor(Math.random() * (finalIndex - 5));
-    console.log(initialIndex, finalIndex);
 
     return albums.slice(initialIndex, finalIndex);
   }
