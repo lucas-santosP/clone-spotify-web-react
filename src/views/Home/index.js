@@ -1,77 +1,85 @@
 import React from "react";
 
 import ContentSection from "./ContentSection";
+import { useStore } from "../../store";
 
-const Home = ({ albums }) => {
+const Home = () => {
+  const { albums } = useStore();
+
+  function getRandomAlbums() {
+    const finalIndex = Math.floor(Math.random() * (50 - 5)) + 7;
+    const initialIndex = Math.floor(Math.random() * (finalIndex - 5));
+    console.log(initialIndex, finalIndex);
+
+    return albums.slice(initialIndex, finalIndex);
+  }
+
   return (
     <div>
-      <ContentSection
-        title={"Atalhos"}
-        arrayItems={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-      />
+      <ContentSection title={"Atalhos"} albums={getRandomAlbums()} />
       <ContentSection
         title={"Tocado recentemente"}
-        arrayItems={[1, 2, 3, 4, 5, 6]}
+        albums={getRandomAlbums()}
       />
       <ContentSection
         title={"Seus podcasts mais escutados"}
-        arrayItems={[1, 2, 3, 4]}
+        albums={getRandomAlbums()}
       />
       <ContentSection
         title={"Suas músicas e álbuns favoritos"}
-        arrayItems={[1, 2, 3]}
+        albums={getRandomAlbums()}
       />
       <ContentSection
         title={"Suas músicas estão com saudade"}
-        arrayItems={[1, 2]}
+        albums={getRandomAlbums()}
       />
       <ContentSection
         title={"Suas músicas estão com saudade"}
-        arrayItems={[1, 2]}
+        albums={getRandomAlbums()}
       />
       <ContentSection
         title={"Suas músicas estão com saudade"}
-        arrayItems={[1, 2]}
+        albums={getRandomAlbums()}
       />
       <ContentSection
         title={"Suas músicas estão com saudade"}
-        arrayItems={[1, 2]}
+        albums={getRandomAlbums()}
       />
       <ContentSection
         title={"Suas músicas estão com saudade"}
-        arrayItems={[1, 2]}
+        albums={getRandomAlbums()}
       />
       <ContentSection
         title={"Suas músicas estão com saudade"}
-        arrayItems={[1, 2]}
+        albums={getRandomAlbums()}
       />
       <ContentSection
         title={"Suas músicas estão com saudade"}
-        arrayItems={[1, 2]}
+        albums={getRandomAlbums()}
       />
       <ContentSection
         title={"Suas músicas estão com saudade"}
-        arrayItems={[1, 2]}
+        albums={getRandomAlbums()}
       />
       <ContentSection
         title={"Suas músicas estão com saudade"}
-        arrayItems={[1, 2]}
+        albums={getRandomAlbums()}
       />
       <ContentSection
         title={"Suas músicas estão com saudade"}
-        arrayItems={[1, 2]}
+        albums={getRandomAlbums()}
       />
       <ContentSection
         title={"Suas músicas estão com saudade"}
-        arrayItems={[1, 2]}
+        albums={getRandomAlbums()}
       />
       <ContentSection
         title={"Suas músicas estão com saudade"}
-        arrayItems={[1, 2]}
+        albums={getRandomAlbums()}
       />
       <ContentSection
         title={"Suas músicas estão com saudade"}
-        arrayItems={[1, 2]}
+        albums={getRandomAlbums()}
       />
     </div>
   );

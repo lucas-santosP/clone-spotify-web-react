@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-
-import { albumServices, tagServices } from "./common/services/modules";
 
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
@@ -11,28 +9,10 @@ import Search from "./views/Search";
 import MyLibrary from "./views/MyLibrary";
 import LoadingView from "./components/ui/LoadingView";
 
+import { useStore } from "./store";
+
 function Routes() {
-  const [albums, setAlbums] = useState([]);
-  const [tags, setTags] = useState([]);
-  const [tagsInChart, setTagsInChart] = useState([]);
-  const [isFetching, setIsFetching] = useState(true);
-
-  useEffect(() => {
-    async function fetchAll() {
-      const fetchedAlbums = await await albumServices.get();
-      setAlbums([...fetchedAlbums]);
-
-      const fetchedTags = await tagServices.get();
-      setTags([...fetchedTags]);
-
-      const fetchedTagsChart = await tagServices.getTopInChart();
-      setTagsInChart([...fetchedTagsChart]);
-
-      setIsFetching(false);
-    }
-
-    fetchAll();
-  }, []);
+  const { isFetching } = useStore();
 
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
@@ -45,18 +25,9 @@ function Routes() {
           <LoadingView />
         ) : (
           <Switch>
-            <Route
-              path="/home"
-              render={(props) => <Home {...props} albums={albums} />}
-            />
-            <Route
-              path="/search"
-              render={(props) => (
-                <Search {...props} tags={tags} tagsInChart={tagsInChart} />
-              )}
-            />
+            <Route path="/home" component={Home} />
+            <Route path="/search" component={Search} />
             <Route path="/my-library" component={MyLibrary} />
-
             <Redirect to="/home" />
           </Switch>
         )}

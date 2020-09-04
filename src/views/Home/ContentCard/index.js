@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./styles.scss";
 
 import { limitTextLength } from "../../../common/utils";
-import coverImg from "../../../assets/cover-example.jfif";
 
-const ContentCard = () => {
+const ContentCard = ({ albumCover, albumTitle, artistName }) => {
   const [currentTextLimit, setCurrentTextLimit] = useState(16);
 
   function updateCurrentTextLimit() {
@@ -22,16 +21,13 @@ const ContentCard = () => {
   }, []);
 
   return (
-    <div className="content-card" title="After Hours (Deluxe edition)">
-      <img className="cover-img" src={coverImg} alt="" />
+    <div className="content-card" title={artistName + " - " + albumTitle}>
+      <img className="cover-img" src={albumCover} alt="Album Cover" />
 
       <span className="title">
-        {limitTextLength(
-          "After Hours (Deluxe edition)asdasdasd",
-          currentTextLimit
-        )}
+        {limitTextLength(albumTitle, currentTextLimit)}
       </span>
-      <span className="subtitle">The Weeknd</span>
+      <span className="subtitle">{artistName}</span>
 
       <button className="btn-play">
         <svg height="16" role="img" width="16" viewBox="0 0 24 24">
