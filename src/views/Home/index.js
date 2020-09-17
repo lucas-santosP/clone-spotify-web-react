@@ -5,12 +5,15 @@ import { useStore } from "../../store";
 
 const Home = () => {
   const { albums } = useStore();
+  let initialIndex = 0;
 
   function getRandomAlbums() {
-    const finalIndex = Math.floor(Math.random() * (50 - 5)) + 7;
-    const initialIndex = Math.floor(Math.random() * (finalIndex - 5));
+    const albumsResult = albums.slice(initialIndex, initialIndex + 10);
 
-    return albums.slice(initialIndex, finalIndex);
+    if (initialIndex % 10 === 0) initialIndex += 5;
+    else initialIndex += 10;
+
+    return albumsResult;
   }
 
   return (
@@ -18,10 +21,6 @@ const Home = () => {
       <ContentSection title={"Atalhos"} albums={getRandomAlbums()} />
       <ContentSection
         title={"Tocado recentemente"}
-        albums={getRandomAlbums()}
-      />
-      <ContentSection
-        title={"Seus podcasts mais escutados"}
         albums={getRandomAlbums()}
       />
       <ContentSection
@@ -33,51 +32,11 @@ const Home = () => {
         albums={getRandomAlbums()}
       />
       <ContentSection
-        title={"Suas músicas estão com saudade"}
+        title={"Com base no que você ouviu recentemente"}
         albums={getRandomAlbums()}
       />
       <ContentSection
-        title={"Suas músicas estão com saudade"}
-        albums={getRandomAlbums()}
-      />
-      <ContentSection
-        title={"Suas músicas estão com saudade"}
-        albums={getRandomAlbums()}
-      />
-      <ContentSection
-        title={"Suas músicas estão com saudade"}
-        albums={getRandomAlbums()}
-      />
-      <ContentSection
-        title={"Suas músicas estão com saudade"}
-        albums={getRandomAlbums()}
-      />
-      <ContentSection
-        title={"Suas músicas estão com saudade"}
-        albums={getRandomAlbums()}
-      />
-      <ContentSection
-        title={"Suas músicas estão com saudade"}
-        albums={getRandomAlbums()}
-      />
-      <ContentSection
-        title={"Suas músicas estão com saudade"}
-        albums={getRandomAlbums()}
-      />
-      <ContentSection
-        title={"Suas músicas estão com saudade"}
-        albums={getRandomAlbums()}
-      />
-      <ContentSection
-        title={"Suas músicas estão com saudade"}
-        albums={getRandomAlbums()}
-      />
-      <ContentSection
-        title={"Suas músicas estão com saudade"}
-        albums={getRandomAlbums()}
-      />
-      <ContentSection
-        title={"Suas músicas estão com saudade"}
+        title={"Novos lançamentos para você"}
         albums={getRandomAlbums()}
       />
     </div>
