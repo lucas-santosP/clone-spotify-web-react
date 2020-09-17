@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.scss";
 
-import ContentCard from "../ContentCard";
+import AlbumCard from "../AlbumCard";
 import SectionHeader from "../../../components/ui/SectionHeader";
 
 const ContentSection = ({ title = "", albums = [] }) => {
@@ -11,11 +11,11 @@ const ContentSection = ({ title = "", albums = [] }) => {
   }
   return (
     <section className="section-container">
-      <SectionHeader type="link" title={title} linkTo="#" />
+      <SectionHeader type="link" title={title} />
 
       <div className="section-cards">
         {albums.map((album) => (
-          <ContentCard
+          <AlbumCard
             key={album.mbid + album.name}
             albumTitle={album.name}
             artistName={album.artist.name}

@@ -7,8 +7,8 @@ const ContentCard = ({ albumCover, albumTitle, artistName }) => {
   const [currentTextLimit, setCurrentTextLimit] = useState(16);
 
   function updateCurrentTextLimit() {
-    const cardElement = document.querySelector(".content-card");
-    setCurrentTextLimit(parseInt(cardElement.offsetWidth / 12));
+    const cardElement = document.querySelector(".album-card");
+    setCurrentTextLimit(parseInt(cardElement.offsetWidth / 15));
   }
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const ContentCard = ({ albumCover, albumTitle, artistName }) => {
   }, []);
 
   return (
-    <div className="content-card" title={artistName + " - " + albumTitle}>
+    <div className="album-card" title={artistName + " - " + albumTitle}>
       <img className="cover-img" src={albumCover} alt="Album Cover" />
 
       <span className="title">

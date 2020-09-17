@@ -1,6 +1,6 @@
 @import "../../../scss/variables.scss";
 
-.content-card {
+.album-card {
   $card-padding: 1.2rem;
   position: relative;
   display: flex;
@@ -68,7 +68,7 @@
 
 @for $i from 1 through 10 {
   @media screen and (max-width:   #{462 + 180 * $i}px) {
-    .content-card:nth-of-type(#{$i}) ~ .content-card {
+    .album-card:nth-of-type(#{$i}) ~ .album-card {
       display: none !important;
     }
   }
