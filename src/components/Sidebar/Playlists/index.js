@@ -1,8 +1,6 @@
 import React from "react";
 import "./styles.scss";
 
-import { limitTextLength } from "../../../common/utils";
-
 const Playlists = () => {
   const playLists = [
     "Sono Profundo",
@@ -27,7 +25,9 @@ const Playlists = () => {
   return (
     <ul className="playlists-list">
       {playLists.map((playlistName, index) => (
-        <li key={playLists + index}>{limitTextLength(playlistName, 24)}</li>
+        <li key={playLists + index} title={playlistName}>
+          {playlistName}
+        </li>
       ))}
     </ul>
   );

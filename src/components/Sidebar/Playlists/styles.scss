@@ -20,9 +20,12 @@
     align-items: center;
     letter-spacing: 0.4px;
     font-size: 0.9rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 
     &:last-of-type {
-      margin-bottom: 0;
+      margin-bottom: 0.5rem;
     }
     &:hover {
       filter: brightness(150%);
