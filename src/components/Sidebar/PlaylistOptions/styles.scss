@@ -16,19 +16,21 @@
     font-weight: 900;
     letter-spacing: 1px;
     text-align: start;
+    background: none;
   }
 
   > button {
+    overflow: hidden;
     @extend %flex-center;
     @extend %base-transition;
     justify-content: flex-start;
     position: relative;
     width: 100%;
-    border-bottom: 0.3rem solid $dark-black;
-
-    font-weight: bold;
+    height: 40px;
     color: $light-gray;
     background-color: $light-gray;
+    font-weight: bold;
+    border-bottom: 0.5rem solid $dark-black;
 
     &:hover {
       cursor: pointer;
@@ -36,14 +38,11 @@
       color: #fff;
     }
 
-    & + button {
-      border-top: 0.3rem solid $dark-black;
-    }
-
     > .btn-icon-bg {
       @extend %flex-center;
-      height: 32px;
+      height: 35px;
       width: 32px;
+
       &.bg-gradient {
         background: rgb(85, 79, 194);
         background: linear-gradient(
@@ -61,7 +60,7 @@
       position: absolute;
       left: 32px;
       width: 100%;
-      height: 100%;
+      height: 40px;
       padding-left: 1rem;
       font-size: 0.85rem;
       letter-spacing: 0.5px;
