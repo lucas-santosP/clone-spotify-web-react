@@ -6,25 +6,28 @@ const SectionHeader = ({
   title = "Empty title",
   linkTo = "#",
 }) => {
-  let titleElement;
-
-  if (type === "text") {
-    titleElement = title;
-  } else if (type === "link") {
-    titleElement = (
-      <a href={linkTo} className="title-link">
-        {title}
-      </a>
-    );
-  }
-
   return (
     <section className="section-container">
       <div className="section-header">
-        <h2 className="title">{titleElement}</h2>
+        <h2 className="title">
+          {type === "text" ? title : null}
+          {type === "link" ? (
+            <a
+              href={linkTo}
+              onClick={(e) => e.preventDefault()}
+              className="title-link"
+            >
+              {title}
+            </a>
+          ) : null}
+        </h2>
 
         {type === "link" ? (
-          <a href={linkTo} className="aside-link">
+          <a
+            href={linkTo}
+            onClick={(e) => e.preventDefault()}
+            className="aside-link"
+          >
             VER TUDO
           </a>
         ) : null}
