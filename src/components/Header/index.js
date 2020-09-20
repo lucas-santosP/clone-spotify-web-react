@@ -7,6 +7,7 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import ButtonUser from "./ButtonUser";
+import SearchBar from "./SearchBar";
 
 const MainHeader = () => {
   const history = useHistory();
@@ -23,6 +24,7 @@ const MainHeader = () => {
   }
 
   function goFoward() {
+    console.log(history);
     history.goForward();
   }
 
@@ -40,6 +42,9 @@ const MainHeader = () => {
       <button className="btn-arrow" onClick={goFoward}>
         <FontAwesomeIcon icon={faChevronRight} color={"#fff"} />
       </button>
+
+      <SearchBar />
+      {/* <ListOfCategories/> */}
 
       <ButtonUser />
     </header>
