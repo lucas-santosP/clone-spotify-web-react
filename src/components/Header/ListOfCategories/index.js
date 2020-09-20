@@ -3,7 +3,7 @@ import "./styles.scss";
 
 const ListOfCategories = () => {
   const categories = ["Playlists", "Podcasts", "Artistas", "Álbuns"];
-  const [currentCategory, setCurrentCategory] = useState("");
+  const [currentCategory, setCurrentCategory] = useState(categories[0]);
 
   return (
     <ul className="list-of-categories">
