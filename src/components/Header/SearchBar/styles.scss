@@ -12,17 +12,19 @@
     border-radius: 2rem;
     padding: 0 3rem;
   }
+
   .search-icon {
     @extend %flex-center;
-    color: #000;
+    color: $dark-black;
     position: absolute;
     top: 50%;
     left: 0%;
     transform: translateY(-50%) translateX(50%);
   }
+
   .search-clear-icon {
     @extend %flex-center;
-    color: #000;
+    color: $dark-black;
     position: absolute;
     top: 50%;
     right: 0%;

@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from "react";
 import "./styles.scss";
-import { useHistory } from "react-router-dom";
+
+import { useHistory, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
+
 import ButtonUser from "./ButtonUser";
 import SearchBar from "./SearchBar";
+import ListOfCategories from "./ListOfCategories";
 
 const MainHeader = () => {
   const history = useHistory();
+  const location = useLocation();
+
   const [isScrolled, setIsScrolled] = useState(false);
+  const [currentPage, setCurrentPage] = useState("");
 
   function updateIsScrolled() {
     if (document.querySelector(".app-main").scrollTop >= 50)
@@ -19,14 +25,9 @@ const MainHeader = () => {
     else setIsScrolled(false);
   }
 
-  function goBack() {
-    history.goBack();
-  }
-
-  function goFoward() {
-    console.log(history);
-    history.goForward();
-  }
+  useEffect(() => {
+    setCurrentPage(location.pathname);
+  }, [location.pathname]);
 
   useEffect(() => {
     document
@@ -36,15 +37,15 @@ const MainHeader = () => {
 
   return (
     <header className={`main-header ${isScrolled ? "header-scrolled" : ""}`}>
-      <button className="btn-arrow" onClick={goBack}>
+      <button className="btn-arrow" onClick={history.goBack}>
         <FontAwesomeIcon icon={faChevronLeft} color={"#fff"} />
       </button>
-      <button className="btn-arrow" onClick={goFoward}>
+      <button className="btn-arrow" onClick={history.goForward}>
         <FontAwesomeIcon icon={faChevronRight} color={"#fff"} />
       </button>
 
-      <SearchBar />
-      {/* <ListOfCategories/> */}
+      {currentPage === "/search" ? <SearchBar /> : null}
+      {currentPage === "/my-library" ? <ListOfCategories /> : null}
 
       <ButtonUser />
     </header>
