@@ -1,6 +1,8 @@
 import React from "react";
 import "./styles.scss";
 
+import { ReactComponent as PlayIcon } from "../../../assets/icons/play.svg";
+
 const ContentCard = ({ albumCover, albumTitle, artistName }) => {
   return (
     <div className="album-card">
@@ -12,12 +14,7 @@ const ContentCard = ({ albumCover, albumTitle, artistName }) => {
       <span className="subtitle">{artistName}</span>
 
       <button className="btn-play" title="Play">
-        <svg height="16" role="img" width="16" viewBox="0 0 24 24">
-          <polygon
-            points="21.57 12 5.98 3 5.98 21 21.57 12"
-            fill="#fff"
-          ></polygon>
-        </svg>
+        <PlayIcon />
       </button>
     </div>
   );
