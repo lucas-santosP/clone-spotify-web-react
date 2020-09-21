@@ -9,6 +9,11 @@ export default function StoreProvider({ children }) {
   const [tagsInChart, setTagsInChart] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
 
+  const [categories, setCategories] = useState({
+    current: "Playlists",
+    array: ["Playlists", "Podcasts", "Artistas", "Álbuns"],
+  });
+
   useEffect(() => {
     async function fetchAll() {
       const fetchedAlbums = await await albumServices.get();
@@ -33,6 +38,8 @@ export default function StoreProvider({ children }) {
         tags,
         tagsInChart,
         isFetching,
+        categories,
+        setCategories,
       }}
     >
       {children}
