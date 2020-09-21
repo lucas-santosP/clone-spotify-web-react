@@ -1,15 +1,11 @@
 import React from "react";
 import "./styles.scss";
 
+import { normalizeImageUrl } from "../../../common/utils";
 import Card from "../../../components/ui/Card";
 import SectionHeader from "../../../components/ui/SectionHeader";
 
 const ContentSection = ({ title = "", albums = [] }) => {
-  function normalizeImageSource(url) {
-    const lastIndex = url.lastIndexOf(".");
-    return url.substr(0, lastIndex);
-  }
-
   return (
     <section className="home-section">
       <SectionHeader type="link" title={title} />
@@ -21,7 +17,7 @@ const ContentSection = ({ title = "", albums = [] }) => {
             key={album.mbid + album.name}
             title={album.name}
             subtitle={album.artist.name}
-            image={normalizeImageSource(album.image[2]["#text"])}
+            image={normalizeImageUrl(album.image)}
           />
         ))}
       </div>
