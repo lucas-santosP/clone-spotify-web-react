@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./views/Home";
 import Search from "./views/Search";
-import MyLibrary from "./views/MyLibrary";
+import YourLibrary from "./views/YourLibrary";
 import LoadingView from "./components/ui/LoadingView";
 
 import { useStore } from "./store";
@@ -27,7 +27,7 @@ function Routes() {
           <Switch>
             <Route path="/home" component={Home} />
             <Route path="/search" component={Search} />
-            <Route path="/my-library" component={MyLibrary} />
+            <Route path="/my-library" component={YourLibrary} />
             <Redirect to="/home" />
           </Switch>
         )}
