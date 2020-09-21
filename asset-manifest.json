@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/clone-spotify-web-react/static/css/main.ac87737b.chunk.css",
-    "main.js": "/clone-spotify-web-react/static/js/main.03172f10.chunk.js",
-    "main.js.map": "/clone-spotify-web-react/static/js/main.03172f10.chunk.js.map",
+    "main.js": "/clone-spotify-web-react/static/js/main.74a547c2.chunk.js",
+    "main.js.map": "/clone-spotify-web-react/static/js/main.74a547c2.chunk.js.map",
     "runtime-main.js": "/clone-spotify-web-react/static/js/runtime-main.c0ff7ef8.js",
     "runtime-main.js.map": "/clone-spotify-web-react/static/js/runtime-main.c0ff7ef8.js.map",
-    "static/js/2.c51312ac.chunk.js": "/clone-spotify-web-react/static/js/2.c51312ac.chunk.js",
-    "static/js/2.c51312ac.chunk.js.map": "/clone-spotify-web-react/static/js/2.c51312ac.chunk.js.map",
+    "static/js/2.7e119fff.chunk.js": "/clone-spotify-web-react/static/js/2.7e119fff.chunk.js",
+    "static/js/2.7e119fff.chunk.js.map": "/clone-spotify-web-react/static/js/2.7e119fff.chunk.js.map",
     "index.html": "/clone-spotify-web-react/index.html",
-    "precache-manifest.9a1c6891beddf18d5e0875815067c14f.js": "/clone-spotify-web-react/precache-manifest.9a1c6891beddf18d5e0875815067c14f.js",
+    "precache-manifest.9717944c0db512583205ed49b2e71f55.js": "/clone-spotify-web-react/precache-manifest.9717944c0db512583205ed49b2e71f55.js",
     "service-worker.js": "/clone-spotify-web-react/service-worker.js",
     "static/css/main.ac87737b.chunk.css.map": "/clone-spotify-web-react/static/css/main.ac87737b.chunk.css.map",
-    "static/js/2.c51312ac.chunk.js.LICENSE.txt": "/clone-spotify-web-react/static/js/2.c51312ac.chunk.js.LICENSE.txt",
+    "static/js/2.7e119fff.chunk.js.LICENSE.txt": "/clone-spotify-web-react/static/js/2.7e119fff.chunk.js.LICENSE.txt",
     "static/media/clear.641e8e3e.svg": "/clone-spotify-web-react/static/media/clear.641e8e3e.svg",
     "static/media/cover-example.jfif": "/clone-spotify-web-react/static/media/cover-example.11ee6d78.jfif",
     "static/media/home-selected.9fcc0771.svg": "/clone-spotify-web-react/static/media/home-selected.9fcc0771.svg",
@@ -26,8 +26,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.c0ff7ef8.js",
-    "static/js/2.c51312ac.chunk.js",
+    "static/js/2.7e119fff.chunk.js",
     "static/css/main.ac87737b.chunk.css",
-    "static/js/main.03172f10.chunk.js"
+    "static/js/main.74a547c2.chunk.js"
   ]
 }
