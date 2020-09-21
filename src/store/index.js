@@ -1,5 +1,9 @@
 import React, { createContext, useEffect, useState, useContext } from "react";
-import { albumServices, tagServices } from "../common/services/modules";
+import {
+  albumServices,
+  tagServices,
+  podcastServices,
+} from "../common/services/modules";
 
 const StoreContext = createContext();
 
@@ -7,6 +11,7 @@ export default function StoreProvider({ children }) {
   const [albums, setAlbums] = useState([]);
   const [tags, setTags] = useState([]);
   const [tagsInChart, setTagsInChart] = useState([]);
+  const [podcasts, setPodcasts] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
 
   const [categories, setCategories] = useState({
@@ -25,6 +30,9 @@ export default function StoreProvider({ children }) {
       const fetchedTagsChart = await tagServices.getTopInChart();
       setTagsInChart([...fetchedTagsChart]);
 
+      const fetchedPodcasts = await podcastServices.get();
+      setPodcasts([...fetchedPodcasts]);
+
       setIsFetching(false);
     }
 
@@ -38,6 +46,7 @@ export default function StoreProvider({ children }) {
         tags,
         tagsInChart,
         isFetching,
+        podcasts,
         categories,
         setCategories,
       }}
