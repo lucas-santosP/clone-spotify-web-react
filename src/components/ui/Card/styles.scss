@@ -1,7 +1,7 @@
 @import "../../../scss/extends.scss";
 @import "../../../scss/variables.scss";
 
-.album-card {
+.card-container {
   $card-padding: 1.2rem;
   position: relative;
   display: flex;
@@ -68,14 +68,6 @@
     &:hover {
       cursor: pointer;
       transform: scale(1.05);
-    }
-  }
-}
-
-@for $i from 1 through 10 {
-  @media screen and (max-width:   #{462 + 180 * $i}px) {
-    .album-card:nth-of-type(#{$i}) ~ .album-card {
-      display: none !important;
     }
   }
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.scss";
 
-import AlbumCard from "../AlbumCard";
+import Card from "../../../components/ui/Card";
 import SectionHeader from "../../../components/ui/SectionHeader";
 
 const ContentSection = ({ title = "", albums = [] }) => {
@@ -9,17 +9,19 @@ const ContentSection = ({ title = "", albums = [] }) => {
     const lastIndex = url.lastIndexOf(".");
     return url.substr(0, lastIndex);
   }
+
   return (
-    <section className="section-container">
+    <section className="home-section">
       <SectionHeader type="link" title={title} />
 
-      <div className="section-cards">
+      <div className="grid-cards">
         {albums.map((album) => (
-          <AlbumCard
+          <Card
+            className="grid-item"
             key={album.mbid + album.name}
-            albumTitle={album.name}
-            artistName={album.artist.name}
-            albumCover={normalizeImageSource(album.image[2]["#text"])}
+            title={album.name}
+            subtitle={album.artist.name}
+            image={normalizeImageSource(album.image[2]["#text"])}
           />
         ))}
       </div>

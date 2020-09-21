@@ -1,6 +1,6 @@
 import React from "react";
 
-import ContentSection from "./ContentSection";
+import HomeSection from "./HomeSection";
 import { useStore } from "../../store";
 
 const Home = () => {
@@ -18,24 +18,21 @@ const Home = () => {
 
   return (
     <div>
-      <ContentSection title={"Atalhos"} albums={getRandomAlbums()} />
-      <ContentSection
-        title={"Tocado recentemente"}
-        albums={getRandomAlbums()}
-      />
-      <ContentSection
+      <HomeSection title={"Atalhos"} albums={getRandomAlbums()} />
+      <HomeSection title={"Tocado recentemente"} albums={getRandomAlbums()} />
+      <HomeSection
         title={"Suas músicas e álbuns favoritos"}
         albums={getRandomAlbums()}
       />
-      <ContentSection
+      <HomeSection
         title={"Suas músicas estão com saudade"}
         albums={getRandomAlbums()}
       />
-      <ContentSection
+      <HomeSection
         title={"Com base no que você ouviu recentemente"}
         albums={getRandomAlbums()}
       />
-      <ContentSection
+      <HomeSection
         title={"Novos lançamentos para você"}
         albums={getRandomAlbums()}
       />
