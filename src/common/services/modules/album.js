@@ -12,4 +12,12 @@ export default {
       console.log(error);
     }
   },
+
+  async getInfos(albumName, artistName) {
+    const response = await api.get(
+      `/?method=album.getinfo&api_key=${process.env.REACT_APP_LASTFM_API_KEY}&album=${albumName}&artist=${artistName}&autocorrect=1&format=json`
+    );
+
+    return response.data.album;
+  },
 };
