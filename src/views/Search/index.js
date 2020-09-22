@@ -7,13 +7,13 @@ import Slider from "./Slider";
 import GenresGrid from "./GenresGrid";
 
 const Search = () => {
-  const { tags, tagsInChart } = useStore();
+  const { tags, topTags } = useStore();
 
   return (
     <div className="search-view-container">
       <section className="section">
         <SectionHeader title="Seus gêneros favoritos" />
-        <Slider slides={tagsInChart} />
+        <Slider slides={topTags} />
       </section>
 
       <section className="section">

@@ -1,8 +1,8 @@
 import React, { createContext, useEffect, useState, useContext } from "react";
 import {
-  albumServices,
-  tagServices,
-  podcastServices,
+  albumsServices,
+  tagsServices,
+  podcastsServices,
 } from "../common/services/modules";
 
 const StoreContext = createContext();
@@ -10,10 +10,9 @@ const StoreContext = createContext();
 export default function StoreProvider({ children }) {
   const [albums, setAlbums] = useState([]);
   const [tags, setTags] = useState([]);
-  const [tagsInChart, setTagsInChart] = useState([]);
+  const [topTags, setTopTags] = useState([]);
   const [podcasts, setPodcasts] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
-
   const [categories, setCategories] = useState({
     current: "Playlists",
     array: ["Playlists", "Podcasts", "Artistas", "Álbuns"],
@@ -21,16 +20,14 @@ export default function StoreProvider({ children }) {
 
   useEffect(() => {
     async function fetchAll() {
-      const fetchedAlbums = await await albumServices.get();
+      const fetchedAlbums = await await albumsServices.get();
       setAlbums([...fetchedAlbums]);
 
-      const fetchedTags = await tagServices.get();
-      setTags([...fetchedTags]);
+      const fetchedTags = await tagsServices.get();
+      setTopTags([...fetchedTags.slice(0, 4)]);
+      setTags([...fetchedTags.slice(4)]);
 
-      const fetchedTagsChart = await tagServices.getTopInChart();
-      setTagsInChart([...fetchedTagsChart]);
-
-      const fetchedPodcasts = await podcastServices.get();
+      const fetchedPodcasts = await podcastsServices.get();
       setPodcasts([...fetchedPodcasts]);
 
       setIsFetching(false);
@@ -44,7 +41,7 @@ export default function StoreProvider({ children }) {
       value={{
         albums,
         tags,
-        tagsInChart,
+        topTags,
         isFetching,
         podcasts,
         categories,
