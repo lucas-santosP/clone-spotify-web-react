@@ -27,7 +27,7 @@ function Routes() {
           <Switch>
             <Route path="/home" component={Home} />
             <Route path="/search" component={Search} />
-            <Route path="/my-library" component={YourLibrary} />
+            <Route path="/your-library" component={YourLibrary} />
             <Redirect to="/home" />
           </Switch>
         )}

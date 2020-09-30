@@ -12,12 +12,12 @@ const Search = () => {
   return (
     <div className="search-view-container">
       <section className="section">
-        <SectionHeader title="Seus gêneros favoritos" />
+        <SectionHeader title="Your top genres" />
         <Slider slides={topTags} />
       </section>
 
       <section className="section">
-        <SectionHeader title="Navegar por todas as seções" />
+        <SectionHeader title="Browse all" />
         <GenresGrid genres={tags} />
       </section>
     </div>

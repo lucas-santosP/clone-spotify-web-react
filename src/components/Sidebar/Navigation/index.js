@@ -12,7 +12,7 @@ import { ReactComponent as LibraryIcon } from "../../../assets/icons/library.svg
 const Navigation = () => {
   const history = useHistory();
   const location = useLocation();
-  const [currentPage, setCurrentPage] = useState("inicio");
+  const [currentPage, setCurrentPage] = useState("");
 
   function changeCurrentPage(path) {
     if (location.pathname !== path) {
@@ -32,25 +32,21 @@ const Navigation = () => {
         className={currentPage === "/home" ? "active" : ""}
       >
         {currentPage === "/home" ? <HomeSelectedIcon /> : <HomeIcon />}
-        <span className="text">Início</span>
+        <span className="text">Home</span>
       </li>
       <li
         onClick={() => changeCurrentPage("/search")}
         className={currentPage === "/search" ? "active" : ""}
       >
         {currentPage === "/search" ? <SearchSelectedIcon /> : <SearchIcon />}
-        <span className="text">Buscar</span>
+        <span className="text">Search</span>
       </li>
       <li
-        onClick={() => changeCurrentPage("/my-library")}
-        className={currentPage === "/my-library" ? "active" : ""}
+        onClick={() => changeCurrentPage("/your-library")}
+        className={currentPage === "/your-library" ? "active" : ""}
       >
-        {currentPage === "/my-library" ? (
-          <LibrarySelectedIcon />
-        ) : (
-          <LibraryIcon />
-        )}
-        <span className="text">Sua Biblioteca</span>
+        {currentPage === "/your-library" ? <LibrarySelectedIcon /> : <LibraryIcon />}
+        <span className="text">Your library</span>
       </li>
     </ul>
   );

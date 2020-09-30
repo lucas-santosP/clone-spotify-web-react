@@ -1,11 +1,7 @@
 import React from "react";
 import "./styles.scss";
 
-const SectionHeader = ({
-  type = "text",
-  title = "Empty title",
-  linkTo = "#",
-}) => {
+const SectionHeader = ({ type = "text", title = "Empty title", linkTo = "#" }) => {
   return (
     <section className="section-container">
       <div className="section-header">
@@ -28,7 +24,7 @@ const SectionHeader = ({
             onClick={(e) => e.preventDefault()}
             className="aside-link"
           >
-            VER TUDO
+            SEE ALL
           </a>
         ) : null}
       </div>

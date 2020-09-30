@@ -3,10 +3,7 @@ import "./styles.scss";
 
 import { useHistory, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronLeft,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 import ButtonUser from "./ButtonUser";
 import SearchBar from "./SearchBar";
@@ -20,8 +17,7 @@ const MainHeader = () => {
   const [currentPage, setCurrentPage] = useState("");
 
   function updateIsScrolled() {
-    if (document.querySelector(".app-main").scrollTop >= 50)
-      setIsScrolled(true);
+    if (document.querySelector(".app-main").scrollTop >= 50) setIsScrolled(true);
     else setIsScrolled(false);
   }
 
@@ -30,9 +26,7 @@ const MainHeader = () => {
   }, [location.pathname]);
 
   useEffect(() => {
-    document
-      .querySelector(".app-main")
-      .addEventListener("scroll", updateIsScrolled);
+    document.querySelector(".app-main").addEventListener("scroll", updateIsScrolled);
   }, []);
 
   return (
@@ -45,7 +39,7 @@ const MainHeader = () => {
       </button>
 
       {currentPage === "/search" ? <SearchBar /> : null}
-      {currentPage === "/my-library" ? <ListOfCategories /> : null}
+      {currentPage === "/your-library" ? <ListOfCategories /> : null}
 
       <ButtonUser />
     </header>

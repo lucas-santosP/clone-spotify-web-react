@@ -14,7 +14,7 @@ const YourLibrary = () => {
       <SectionHeader title={categories.current} />
 
       <div className="grid-cards">
-        {categories.current === "Álbuns"
+        {categories.current === "Albums"
           ? albums.map((album) => (
               <Card
                 className="grid-item"

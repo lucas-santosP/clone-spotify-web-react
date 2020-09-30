@@ -18,24 +18,12 @@ const Home = () => {
 
   return (
     <div>
-      <HomeSection title={"Atalhos"} albums={getRandomAlbums()} />
-      <HomeSection title={"Tocado recentemente"} albums={getRandomAlbums()} />
-      <HomeSection
-        title={"Suas músicas e álbuns favoritos"}
-        albums={getRandomAlbums()}
-      />
-      <HomeSection
-        title={"Suas músicas estão com saudade"}
-        albums={getRandomAlbums()}
-      />
-      <HomeSection
-        title={"Com base no que você ouviu recentemente"}
-        albums={getRandomAlbums()}
-      />
-      <HomeSection
-        title={"Novos lançamentos para você"}
-        albums={getRandomAlbums()}
-      />
+      <HomeSection title={"Recently played"} albums={getRandomAlbums()} />
+      <HomeSection title={"Your heavy rotation"} albums={getRandomAlbums()} />
+      <HomeSection title={"Mood"} albums={getRandomAlbums()} />
+      <HomeSection title={"You might also like"} albums={getRandomAlbums()} />
+      <HomeSection title={"Jump back in"} albums={getRandomAlbums()} />
+      <HomeSection title={"For today's drive"} albums={getRandomAlbums()} />
     </div>
   );
 };

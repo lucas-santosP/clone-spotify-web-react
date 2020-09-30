@@ -16,7 +16,7 @@ const SearchBar = () => {
         className="search-input"
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
-        placeholder="Busque artistas, músicas ou podcasts"
+        placeholder="Search for Artists, Songs or Podcasts"
       />
 
       {searchValue !== "" ? (

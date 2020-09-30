@@ -28,7 +28,7 @@ const Sidebar = () => {
 
         <button className="btn-install">
           <FontAwesomeIcon icon={faArrowAltCircleDown} color={"CurrentColor"} />
-          Instalar aplicativo
+          Install App
         </button>
       </div>
     </nav>

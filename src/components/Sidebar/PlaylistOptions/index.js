@@ -12,14 +12,14 @@ const PlaylistOptions = () => {
         <div className="btn-icon-bg">
           <FontAwesomeIcon icon={faPlus} color={"#000"} />
         </div>
-        <span className="btn-text">Criar playlist</span>
+        <span className="btn-text">Create Playlist</span>
       </button>
 
       <button>
         <div className="btn-icon-bg bg-gradient">
           <FontAwesomeIcon icon={faHeart} color={"CurrentColor"} />
         </div>
-        <span className="btn-text">Músicas Curtidas</span>
+        <span className="btn-text">Liked Songs</span>
       </button>
     </div>
   );

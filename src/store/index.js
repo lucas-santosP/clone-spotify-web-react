@@ -15,7 +15,7 @@ export default function StoreProvider({ children }) {
   const [isFetching, setIsFetching] = useState(true);
   const [categories, setCategories] = useState({
     current: "Playlists",
-    array: ["Playlists", "Podcasts", "Artistas", "Álbuns"],
+    array: ["Playlists", "Podcasts", "Artist", "Albums"],
   });
 
   useEffect(() => {

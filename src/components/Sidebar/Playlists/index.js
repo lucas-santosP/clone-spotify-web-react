@@ -3,12 +3,12 @@ import "./styles.scss";
 
 const Playlists = () => {
   const playLists = [
-    "Sono Profundo",
-    "Concentração Perfeita",
+    "Deep sleep",
+    "Concentration",
     "Slowly I Dissolve",
-    "Hora de dormir",
+    "Time to Sleep",
     "Songs for sleep: Peaceful mind",
-    "Curtidas na Rádio",
+    "Liked from radio",
     "Release Me",
     "Happiness",
     "Indie Stage",
