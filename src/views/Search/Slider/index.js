@@ -1,20 +1,9 @@
 import React, { useEffect } from "react";
 import "./styles.scss";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronLeft,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 const Slider = ({ slides }) => {
-  const gradients = [
-    "(0deg,rgb(65, 0, 245,0.5),rgb(65, 0, 245))",
-    "(0deg,rgb(235, 30, 50,0.5),rgb(235, 30, 50))",
-    "(0deg,rgb(245, 155, 35,0.5),rgb(245, 155, 35))",
-    "(0deg,rgb(195, 240, 200,0.5),rgb(195, 240, 200))",
-  ];
-
   function slideTo(direction) {
     const sliderTrack = document.querySelector(".slider-track");
     const sliderTrackWidth = sliderTrack.scrollWidth;
@@ -69,13 +58,11 @@ const Slider = ({ slides }) => {
       </button>
 
       <ul className="slider-track">
-        {slides.map((slide, index) => (
+        {slides.map((slide) => (
           <li
             className="slide"
-            key={slide.name + slide.reach}
-            style={{
-              background: `linear-gradient${gradients[index]}`,
-            }}
+            key={slide.id}
+            style={{ backgroundImage: `url(${slide.icons[0].url})` }}
           >
             <span className="slide-text">{slide.name}</span>
           </li>

@@ -1,15 +1,15 @@
 @import "../../../scss/extends.scss";
 
-ul.genres-grid-container {
+ul.category-grid-container {
   width: 100%;
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   padding-bottom: 1rem;
 
   > li.grid-item {
     @extend %flex-center;
-    height: 150px;
+    min-height: 200px;
     border-radius: 0.5rem;
     color: #fff;
 
@@ -20,7 +20,8 @@ ul.genres-grid-container {
     }
 
     > .grid-text {
-      font-size: 1.5rem;
+      word-wrap: normal;
+      font-size: 1.3rem;
       font-weight: bold;
       line-height: 2rem;
       text-align: center;

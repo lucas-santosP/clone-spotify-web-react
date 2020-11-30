@@ -4,21 +4,21 @@ import "./styles.scss";
 import { useStore } from "../../store";
 import SectionHeader from "../../components/ui/SectionHeader";
 import Slider from "./Slider";
-import GenresGrid from "./GenresGrid";
+import CategoriesGrid from "./CategoriesGrid";
 
 const Search = () => {
-  const { tags, topTags } = useStore();
+  const { categories, topCategories } = useStore();
 
   return (
     <div className="search-view-container">
       <section className="section">
         <SectionHeader title="Your top genres" />
-        <Slider slides={topTags} />
+        <Slider slides={topCategories} />
       </section>
 
       <section className="section">
         <SectionHeader title="Browse all" />
-        <GenresGrid genres={tags} />
+        <CategoriesGrid categories={categories} />
       </section>
     </div>
   );

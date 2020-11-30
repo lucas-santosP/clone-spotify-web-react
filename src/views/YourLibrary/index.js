@@ -14,18 +14,17 @@ const YourLibrary = () => {
       <SectionHeader title={categories.current} />
 
       <div className="grid-cards">
-        {categories.current === "Albums"
-          ? albums.map((album) => (
+        {categories.current === "Artists"
+          ? [].map((artist) => (
               <Card
                 className="grid-item"
-                key={album.mbid + album.name}
-                title={album.name}
-                subtitle={album.artist.name}
-                image={normalizeImageUrl(album.image)}
+                key={artist.id}
+                title={artist.name}
+                subtitle="artist"
+                image={normalizeImageUrl(artist.image)}
               />
             ))
           : null}
-
         {categories.current === "Podcasts"
           ? podcasts.map((podcast) => (
               <Card
@@ -34,6 +33,17 @@ const YourLibrary = () => {
                 title={podcast.name}
                 subtitle={podcast.name}
                 image={normalizeImageUrl(podcast.image)}
+              />
+            ))
+          : null}
+        {categories.current === "Albums"
+          ? albums.map((album) => (
+              <Card
+                className="grid-item"
+                key={album.id}
+                title={album.name}
+                subtitle={album.artist.name}
+                image={normalizeImageUrl(album.image)}
               />
             ))
           : null}

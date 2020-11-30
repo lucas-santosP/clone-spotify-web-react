@@ -1,5 +1,5 @@
+import artistServices from "./artists";
 import albumsServices from "./albums";
-import tagsServices from "./tags";
-import podcastsServices from "./podcasts";
+import categoriesServices from "./categories";
 
-export { albumsServices, tagsServices, podcastsServices };
+export { artistServices, albumsServices, categoriesServices };

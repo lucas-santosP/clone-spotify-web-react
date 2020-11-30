@@ -7,7 +7,7 @@ import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons
 
 import ButtonUser from "./ButtonUser";
 import SearchBar from "./SearchBar";
-import ListOfCategories from "./ListOfCategories";
+import LibraryNavTabs from "./LibraryNavTabs";
 
 const MainHeader = () => {
   const history = useHistory();
@@ -38,8 +38,8 @@ const MainHeader = () => {
         <FontAwesomeIcon icon={faChevronRight} color={"#fff"} />
       </button>
 
-      {currentPage === "/search" ? <SearchBar /> : null}
-      {currentPage === "/your-library" ? <ListOfCategories /> : null}
+      {currentPage === "/search" && <SearchBar />}
+      {currentPage === "/your-library" && <LibraryNavTabs />}
 
       <ButtonUser />
     </header>

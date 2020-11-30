@@ -5,12 +5,12 @@
 
   > ul.slider-track {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 25%));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 25%));
     grid-auto-flow: column;
     grid-gap: 1rem;
 
     width: 100%;
-    height: 220px;
+    height: 300px;
     overflow-x: auto;
     scroll-behavior: smooth;
     scrollbar-color: transparent transparent;
@@ -24,16 +24,22 @@
     .slide {
       @extend %flex-center;
       @extend %base-transition;
-      min-width: 350px;
+      min-width: 300px;
       height: 100%;
       border-radius: 0.8rem;
       scroll-snap-align: start;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: top center;
       -webkit-overflow-scrolling: touch;
+      border: 2px rgb(59, 59, 59) solid;
 
       > .slide-text {
         font-weight: bold;
-        font-size: 2rem;
+        font-size: 1.6rem;
         text-transform: uppercase;
+        position: relative;
+        top: -30%;
       }
     }
   }

@@ -20,10 +20,7 @@ const SearchBar = () => {
       />
 
       {searchValue !== "" ? (
-        <ClearIcon
-          className="search-clear-icon"
-          onClick={() => setSearchValue("")}
-        />
+        <ClearIcon className="search-clear-icon" onClick={() => setSearchValue("")} />
       ) : null}
     </div>
   );

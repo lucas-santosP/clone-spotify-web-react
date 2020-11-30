@@ -1,51 +1,77 @@
 import React, { createContext, useEffect, useState, useContext } from "react";
+import api from "../common/services/api";
 import {
   albumsServices,
-  tagsServices,
-  podcastsServices,
+  artistServices,
+  categoriesServices,
 } from "../common/services/modules";
 
 const StoreContext = createContext();
 
+const hash = window.location.hash
+  .substring(1)
+  .split("&")
+  .reduce(function (initial, item) {
+    if (item) {
+      let parts = item.split("=");
+      initial[parts[0]] = decodeURIComponent(parts[1]);
+    }
+    return initial;
+  }, {});
+const libraryTabs = ["Playlists", "Podcasts", "Artists", "Albums"];
+
 export default function StoreProvider({ children }) {
-  const [albums, setAlbums] = useState([]);
-  const [tags, setTags] = useState([]);
-  const [topTags, setTopTags] = useState([]);
-  const [podcasts, setPodcasts] = useState([]);
+  const [token, setToken] = useState("");
   const [isFetching, setIsFetching] = useState(true);
-  const [categories, setCategories] = useState({
-    current: "Playlists",
-    array: ["Playlists", "Podcasts", "Artist", "Albums"],
-  });
+  const [albums, setAlbums] = useState([]);
+  const [artists, setArtists] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [topCategories, setTopCategories] = useState([]);
+  const [currentLibraryTab, setCurrentLibraryTab] = useState(libraryTabs[0]);
 
+  async function fetchAll() {
+    const getAlbum = albumsServices.get();
+    const getArtists = artistServices.get();
+    const getCategories = categoriesServices.get();
+    const data = await Promise.all([getAlbum, getArtists, getCategories]);
+
+    const [fetchedAlbums, fetchedArtists, fetchedCategories] = data;
+    setAlbums([...fetchedAlbums]);
+    setArtists([...fetchedArtists]);
+    setTopCategories([...fetchedCategories.slice(0, 4)]);
+    setCategories([...fetchedCategories.slice(4)]);
+
+    setIsFetching(false);
+  }
+
+  // ou useLayoutEffect
   useEffect(() => {
-    async function fetchAll() {
-      const fetchedAlbums = await await albumsServices.get();
-      setAlbums([...fetchedAlbums]);
-
-      const fetchedTags = await tagsServices.get();
-      setTopTags([...fetchedTags.slice(0, 4)]);
-      setTags([...fetchedTags.slice(4)]);
-
-      const fetchedPodcasts = await podcastsServices.get();
-      setPodcasts([...fetchedPodcasts]);
-
-      setIsFetching(false);
+    if (localStorage.getItem("token")) {
+      setToken(localStorage.getItem("token"));
+    } else if (hash.access_token) {
+      setToken(() => hash.access_token);
+      localStorage.setItem("token", token);
     }
 
-    fetchAll();
-  }, []);
+    if (token) {
+      api.defaults.headers.common["Authorization"] = "Bearer " + token;
+      fetchAll();
+    }
+  }, [token]);
 
   return (
     <StoreContext.Provider
       value={{
-        albums,
-        tags,
-        topTags,
+        token,
         isFetching,
-        podcasts,
+        albums: [],
+        podcasts: [],
+        artists,
         categories,
-        setCategories,
+        topCategories,
+        libraryTabs,
+        currentLibraryTab,
+        setCurrentLibraryTab,
       }}
     >
       {children}
