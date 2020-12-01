@@ -6,6 +6,7 @@
   align-items: flex-start;
   width: 100%;
   margin-bottom: 0.2rem;
+  max-width: 1900px;
 
   > .grid-cards {
     width: 100%;
@@ -18,8 +19,14 @@
     @for $i from 1 through 10 {
       @media screen and (max-width:   #{462 + 180 * $i}px) {
         .grid-item:nth-of-type(#{$i}) ~ .grid-item {
-          display: none !important;
+          display: none;
         }
+      }
+    }
+    //Limit to 10 elements when display is too big
+    @media screen and (min-width: 2262px) {
+      .grid-item:nth-of-type(#{10}) ~ .grid-item {
+        display: none;
       }
     }
   }
