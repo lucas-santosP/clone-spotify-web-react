@@ -2,9 +2,9 @@
 @import "../../../scss/variables.scss";
 
 .card-container {
+  @extend %flex-center;
   $card-padding: 1.2rem;
   position: relative;
-  display: flex;
   flex-direction: column;
   overflow: hidden;
   padding: $card-padding;
@@ -24,12 +24,14 @@
 
   > .cover-img {
     max-width: 100%;
-    object-fit: contain;
+    max-height: 150px;
+    object-fit: cover;
     margin-bottom: 1rem;
     box-shadow: 0px 5px 20px -6px rgba(0, 0, 0, 0.75);
   }
 
   > .title {
+    width: 100%;
     color: #fff;
     font-size: 1rem;
     font-weight: bold;
@@ -41,10 +43,10 @@
   }
 
   > .subtitle {
+    width: 100%;
     font-size: 0.7rem;
     color: $light-gray;
     height: 40px;
-    width: 100%;
 
     &:hover {
       text-decoration: underline;

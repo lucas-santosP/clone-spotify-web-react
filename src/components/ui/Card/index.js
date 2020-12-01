@@ -10,7 +10,7 @@ const Card = ({ image, title, subtitle, className, imageRounded = false }) => {
         className="cover-img"
         src={image}
         alt="Cover"
-        style={{ borderRadius: imageRounded ? "50%" : "" }}
+        style={imageRounded ? { borderRadius: "50%", height: "100%" } : {}}
       />
 
       <span className="title" title={title}>
