@@ -25,14 +25,14 @@ function Routes() {
           {token ? (
             <>
               {isFetching && <LoadingView />}
-              <Route path="/home" component={Home} />
-              <Route path="/search" component={Search} />
-              <Route path="/your-library" component={YourLibrary} />
+              <Route exact strict path="/home" component={Home} />
+              <Route exact strict path="/search" component={Search} />
+              <Route exact strict path="/your-library" component={YourLibrary} />
               <Redirect to="/home" />
             </>
           ) : (
             <>
-              <Route path="/login" component={Login} />
+              <Route exact strict path="/login" component={Login} />
               <Redirect to="/login" />
             </>
           )}
