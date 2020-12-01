@@ -31,6 +31,7 @@ export default function StoreProvider({ children }) {
   const [currentLibraryTab, setCurrentLibraryTab] = useState(libraryTabs[0]);
 
   async function fetchAll() {
+    setIsFetching(true);
     const getAlbum = albumsServices.get();
     const getArtists = artistServices.get();
     const getTopArtists = artistServices.getTop();
