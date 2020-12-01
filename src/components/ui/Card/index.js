@@ -3,10 +3,15 @@ import "./styles.scss";
 
 import { ReactComponent as PlayIcon } from "../../../assets/icons/play.svg";
 
-const Card = ({ image, title, subtitle, className }) => {
+const Card = ({ image, title, subtitle, className, imageRounded = false }) => {
   return (
     <div className={"card-container " + className}>
-      <img className="cover-img" src={image} alt="Cover" />
+      <img
+        className="cover-img"
+        src={image}
+        alt="Cover"
+        style={{ borderRadius: imageRounded ? "50%" : "" }}
+      />
 
       <span className="title" title={title}>
         <span>{title}</span>

@@ -3,7 +3,7 @@ import "./styles.scss";
 
 const Login = () => {
   const redirectUri = "http://localhost:3000/clone-spotify-web-react";
-  const scopes = "user-library-read user-follow-read";
+  const scopes = "user-library-read user-follow-read user-top-read";
 
   return (
     <div className="login-container">

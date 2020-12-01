@@ -25,6 +25,7 @@ export default function StoreProvider({ children }) {
   const [isFetching, setIsFetching] = useState(true);
   const [albums, setAlbums] = useState([]);
   const [artists, setArtists] = useState([]);
+  const [topArtists, setTopArtists] = useState([]);
   const [categories, setCategories] = useState([]);
   const [topCategories, setTopCategories] = useState([]);
   const [currentLibraryTab, setCurrentLibraryTab] = useState(libraryTabs[0]);
@@ -32,12 +33,14 @@ export default function StoreProvider({ children }) {
   async function fetchAll() {
     const getAlbum = albumsServices.get();
     const getArtists = artistServices.get();
+    const getTopArtists = artistServices.getTop();
     const getCategories = categoriesServices.get();
-    const data = await Promise.all([getAlbum, getArtists, getCategories]);
+    const data = await Promise.all([getAlbum, getArtists, getTopArtists, getCategories]);
 
-    const [fetchedAlbums, fetchedArtists, fetchedCategories] = data;
+    const [fetchedAlbums, fetchedArtists, fetchedTopArtists, fetchedCategories] = data;
     setAlbums([...fetchedAlbums]);
     setArtists([...fetchedArtists]);
+    setTopArtists([...fetchedTopArtists]);
     setTopCategories([...fetchedCategories.slice(0, 4)]);
     setCategories([...fetchedCategories.slice(4)]);
 
@@ -64,9 +67,10 @@ export default function StoreProvider({ children }) {
       value={{
         token,
         isFetching,
-        albums: [],
+        albums,
         podcasts: [],
         artists,
+        topArtists,
         categories,
         topCategories,
         libraryTabs,
