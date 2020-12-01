@@ -3,18 +3,9 @@ import "./styles.scss";
 
 import Card from "../../../components/ui/Card";
 import SectionHeader from "../../../components/ui/SectionHeader";
+import { artistsArrayToString } from "../../../common/utils";
 
-const ContentSection = ({ title = "", data = [], type = "album" }) => {
-  function artistsArrayToString(arrayArtists) {
-    let strResult = "";
-    arrayArtists.forEach((artist, index) => {
-      strResult += artist.name;
-      if (index + 1 !== arrayArtists.length) strResult += ", ";
-    });
-
-    return strResult;
-  }
-
+const ContentSection = ({ title = "empty", data = [], type = "album" }) => {
   return (
     <section className="home-section">
       <SectionHeader type="link" title={title} />
