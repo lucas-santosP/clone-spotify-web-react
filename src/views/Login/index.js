@@ -8,8 +8,8 @@ const Login = () => {
   return (
     <div className="login-container">
       <div className="overlay"></div>
-      <div className="login-card">
-        <p>
+      <div className="login-modal">
+        <p className="text">
           Spotify account permission is required,
           <br /> after accept you will be redirected back.
         </p>

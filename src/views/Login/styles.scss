@@ -2,7 +2,7 @@
 @import "../../scss/variables.scss";
 
 .login-container {
-  .overlay {
+  > .overlay {
     top: 0;
     left: 0;
     width: 100%;
@@ -13,7 +13,7 @@
     filter: blur(8px);
   }
 
-  .login-card {
+  > .login-modal {
     @extend %flex-center;
     flex-direction: column;
     position: fixed;
@@ -30,13 +30,16 @@
     animation-fill-mode: forwards;
     animation-name: fadeIn;
 
-    p {
+    > p.text {
+      min-width: 200px;
       font-size: 1.1rem;
       line-height: 2rem;
       margin-bottom: 1.5rem;
     }
 
-    .btn-link {
+    > .btn-link {
+      @extend %flex-center;
+      width: 100%;
       color: #ffff;
       padding: 1rem;
       background-color: $light-green;
