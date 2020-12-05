@@ -4,6 +4,7 @@ import {
   albumsServices,
   artistServices,
   categoriesServices,
+  userServices,
 } from "../common/services/modules";
 import { cookies } from "../common/utils";
 
@@ -24,6 +25,7 @@ const libraryTabs = ["Playlists", "Podcasts", "Artists", "Albums"];
 export default function StoreProvider({ children }) {
   const [token, setToken] = useState("");
   const [isFetching, setIsFetching] = useState(true);
+  const [user, setUser] = useState({});
   const [albums, setAlbums] = useState([]);
   const [artists, setArtists] = useState([]);
   const [topArtists, setTopArtists] = useState([]);
@@ -37,14 +39,28 @@ export default function StoreProvider({ children }) {
     const getArtists = artistServices.get();
     const getTopArtists = artistServices.getTop();
     const getCategories = categoriesServices.get();
-    const data = await Promise.all([getAlbum, getArtists, getTopArtists, getCategories]);
+    const getUser = userServices.get();
+    const data = await Promise.all([
+      getAlbum,
+      getArtists,
+      getTopArtists,
+      getCategories,
+      getUser,
+    ]);
 
-    const [fetchedAlbums, fetchedArtists, fetchedTopArtists, fetchedCategories] = data;
+    const [
+      fetchedAlbums,
+      fetchedArtists,
+      fetchedTopArtists,
+      fetchedCategories,
+      fetchedUser,
+    ] = data;
     setAlbums([...fetchedAlbums]);
     setArtists([...fetchedArtists]);
     setTopArtists([...fetchedTopArtists]);
     setTopCategories([...fetchedCategories.slice(0, 4)]);
     setCategories([...fetchedCategories.slice(4)]);
+    setUser({ ...fetchedUser });
 
     setIsFetching(false);
   }
@@ -70,6 +86,7 @@ export default function StoreProvider({ children }) {
       value={{
         token,
         isFetching,
+        user,
         albums,
         podcasts: [],
         artists,

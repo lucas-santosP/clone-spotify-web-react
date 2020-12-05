@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./styles.scss";
 
+import { useStore } from "../../../store";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons";
-import userImg from "../../../assets/user.jpg";
 import DropdownUser from "../DropdownUser";
 
 const HeaderButtonUser = () => {
+  const { user } = useStore();
   const [dropVisibility, setDropVisibility] = useState(false);
 
   function toggleDropdown(e) {
@@ -29,10 +30,10 @@ const HeaderButtonUser = () => {
       onClick={toggleDropdown}
     >
       <div className="profile-pic-container">
-        <img src={userImg} alt="Profile" />
+        <img src={user.profilePic} alt="Profile" />
       </div>
 
-      <span className="user-name">Lucas</span>
+      <span className="user-name">{user.name}</span>
 
       <FontAwesomeIcon
         className={`triangle-icon ${dropVisibility ? "drop-is-open" : ""}`}
