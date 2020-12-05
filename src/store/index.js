@@ -5,6 +5,7 @@ import {
   artistServices,
   categoriesServices,
 } from "../common/services/modules";
+import { cookies } from "../common/utils";
 
 const StoreContext = createContext();
 
@@ -50,11 +51,12 @@ export default function StoreProvider({ children }) {
 
   // ou useLayoutEffect
   useEffect(() => {
-    if (localStorage.getItem("token")) {
-      setToken(localStorage.getItem("token"));
+    const cookieToken = cookies.get("token");
+    if (cookieToken) {
+      setToken(cookieToken);
     } else if (hash.access_token) {
       setToken(() => hash.access_token);
-      localStorage.setItem("token", token);
+      cookies.set("token", hash.access_token);
     }
 
     if (token) {
