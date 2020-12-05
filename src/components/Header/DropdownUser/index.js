@@ -5,9 +5,9 @@ const DropdownUser = ({ visibility = false }) => {
   if (visibility)
     return (
       <ul className="drop-down">
-        <li>account</li>
-        <li>Profile</li>
-        <li>log out</li>
+        <li className="drop-item">account</li>
+        <li className="drop-item">Profile</li>
+        <li className="drop-item">Log out</li>
       </ul>
     );
   else return null;
