@@ -53,23 +53,24 @@ const Slider = ({ slides }) => {
 
   return (
     <div className="slider-container">
-      <button className="btn-left" onClick={() => slideTo("left")}>
+      <button className="btn-direction btn-left" onClick={() => slideTo("left")}>
         <FontAwesomeIcon icon={faChevronLeft} color={"#000"} />
       </button>
 
       <ul className="slider-track">
         {slides.map((slide) => (
-          <li
-            className="slide"
-            key={slide.id}
-            style={{ backgroundImage: `url(${slide.icons[0].url})` }}
-          >
+          <li className="slide" key={slide.id}>
+            <img
+              className="background-img"
+              src={slide.icons[0].url}
+              alt={`${slide.name} cover`}
+            />
             <span className="slide-text">{slide.name}</span>
           </li>
         ))}
       </ul>
 
-      <button className="btn-right" onClick={() => slideTo("right")}>
+      <button className="btn-direction btn-right" onClick={() => slideTo("right")}>
         <FontAwesomeIcon icon={faChevronRight} color={"#000"} />
       </button>
     </div>

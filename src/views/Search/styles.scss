@@ -1,33 +1,6 @@
 @import "../../scss/extends.scss";
 
-.search-view-container {
+.search-container {
   width: 100%;
-
-  ul.genres-grid-container {
-    width: 100%;
-    display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    padding-bottom: 1rem;
-
-    > li.grid-item {
-      @extend %flex-center;
-      height: 150px;
-      border-radius: 0.5rem;
-      color: #fff;
-
-      &:hover {
-        @extend %base-transition;
-        cursor: pointer;
-        transform: scale(1.05);
-      }
-
-      > .grid-text {
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 2rem;
-        text-align: center;
-      }
-    }
-  }
+  max-width: 1950px;
 }
