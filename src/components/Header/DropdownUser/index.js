@@ -5,11 +5,11 @@ import { cookies } from "../../../common/utils";
 import { useStore } from "../../../store";
 
 const DropdownUser = ({ visibility = false }) => {
-  const { setToken } = useStore();
+  const { clearStore } = useStore();
 
   function doLogout() {
     cookies.delete("token");
-    setToken("");
+    clearStore();
   }
 
   if (visibility)

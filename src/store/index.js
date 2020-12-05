@@ -72,6 +72,18 @@ export default function StoreProvider({ children }) {
     setIsFetching(false);
   }
 
+  function clearStore() {
+    setIsFetching(false);
+    setToken("");
+    setUser(null);
+    setAlbums([]);
+    setArtists([]);
+    setTopArtists([]);
+    setCategories([]);
+    setPlaylists([]);
+    setTopCategories([]);
+  }
+
   // ou useLayoutEffect
   useEffect(() => {
     const cookieToken = cookies.get("token");
@@ -93,7 +105,7 @@ export default function StoreProvider({ children }) {
     <StoreContext.Provider
       value={{
         token,
-        setToken,
+        clearStore,
         isFetching,
         user,
         albums,
