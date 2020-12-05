@@ -5,7 +5,6 @@ export default {
     try {
       const responde = await api.get(`/me/albums?limit=${limit}`);
       const albums = responde.data.items.map((item) => item.album);
-      console.log("albums", albums);
 
       return albums;
     } catch (error) {
