@@ -5,6 +5,7 @@ import {
   artistServices,
   categoriesServices,
   userServices,
+  playlistsServices,
 } from "../common/services/modules";
 import { cookies } from "../common/utils";
 
@@ -30,6 +31,7 @@ export default function StoreProvider({ children }) {
   const [artists, setArtists] = useState([]);
   const [topArtists, setTopArtists] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [playlists, setPlaylists] = useState([]);
   const [topCategories, setTopCategories] = useState([]);
   const [currentLibraryTab, setCurrentLibraryTab] = useState(libraryTabs[0]);
 
@@ -40,12 +42,15 @@ export default function StoreProvider({ children }) {
     const getTopArtists = artistServices.getTop();
     const getCategories = categoriesServices.get();
     const getUser = userServices.get();
+    const getPlaylists = playlistsServices.get();
+
     const data = await Promise.all([
       getAlbum,
       getArtists,
       getTopArtists,
       getCategories,
       getUser,
+      getPlaylists,
     ]);
 
     const [
@@ -54,6 +59,7 @@ export default function StoreProvider({ children }) {
       fetchedTopArtists,
       fetchedCategories,
       fetchedUser,
+      fetchedPlaylists,
     ] = data;
     setAlbums([...fetchedAlbums]);
     setArtists([...fetchedArtists]);
@@ -61,6 +67,7 @@ export default function StoreProvider({ children }) {
     setTopCategories([...fetchedCategories.slice(0, 4)]);
     setCategories([...fetchedCategories.slice(4)]);
     setUser({ ...fetchedUser });
+    setPlaylists([...fetchedPlaylists]);
 
     setIsFetching(false);
   }
@@ -73,6 +80,7 @@ export default function StoreProvider({ children }) {
     } else if (hash.access_token) {
       setToken(() => hash.access_token);
       cookies.set("token", hash.access_token);
+      hash.access_token = "";
     }
 
     if (token) {
@@ -92,6 +100,7 @@ export default function StoreProvider({ children }) {
         podcasts: [],
         artists,
         topArtists,
+        playlists,
         categories,
         topCategories,
         libraryTabs,
