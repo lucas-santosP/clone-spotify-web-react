@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./styles.scss";
 import { useStore } from "../../store";
 import HomeSection from "./HomeSection";
 
@@ -15,7 +15,7 @@ const Home = () => {
   }
 
   return (
-    <div>
+    <div className="home-container">
       <HomeSection title={"Recently played"} data={getRandomAlbums()} />
       <HomeSection title={"Your heavy rotation"} data={getRandomAlbums()} />
       <HomeSection title={"Your favorite artists"} data={topArtists} type={"artist"} />
