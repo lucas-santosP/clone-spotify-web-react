@@ -24,7 +24,7 @@ const HeaderButtonUser = () => {
     document.removeEventListener("click", closeDropdown);
   }
 
-  return (
+  return user ? (
     <button
       className={`btn-user ${dropVisibility ? "drop-is-open" : ""}`}
       onClick={toggleDropdown}
@@ -43,7 +43,7 @@ const HeaderButtonUser = () => {
 
       <DropdownUser visibility={dropVisibility} />
     </button>
-  );
+  ) : null;
 };
 
 export default HeaderButtonUser;

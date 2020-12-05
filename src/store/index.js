@@ -25,7 +25,7 @@ const libraryTabs = ["Playlists", "Podcasts", "Artists", "Albums"];
 export default function StoreProvider({ children }) {
   const [token, setToken] = useState("");
   const [isFetching, setIsFetching] = useState(true);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   const [albums, setAlbums] = useState([]);
   const [artists, setArtists] = useState([]);
   const [topArtists, setTopArtists] = useState([]);
@@ -85,6 +85,7 @@ export default function StoreProvider({ children }) {
     <StoreContext.Provider
       value={{
         token,
+        setToken,
         isFetching,
         user,
         albums,
