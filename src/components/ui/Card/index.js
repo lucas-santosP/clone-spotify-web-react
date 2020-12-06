@@ -9,6 +9,11 @@ const Card = ({ image, title, subtitle, className, imageRounded = false }) => {
       <img
         className="cover-img"
         src={image}
+        onError={(e) => {
+          e.target.onerror = null;
+          e.target.src =
+            "https://lastfm.freetls.fastly.net/i/u/300x300/4128a6eb29f94943c9d206c08e625904.webp";
+        }}
         alt="Cover"
         style={{ borderRadius: imageRounded ? "50%" : "" }}
       />
