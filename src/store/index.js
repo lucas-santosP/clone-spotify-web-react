@@ -6,6 +6,7 @@ import {
   categoriesServices,
   userServices,
   playlistsServices,
+  podcastsServices,
 } from "../common/services/modules";
 import { cookies } from "../common/utils";
 
@@ -30,6 +31,7 @@ export default function StoreProvider({ children }) {
   const [albums, setAlbums] = useState([]);
   const [artists, setArtists] = useState([]);
   const [topArtists, setTopArtists] = useState([]);
+  const [podcasts, setPodcasts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [playlists, setPlaylists] = useState([]);
   const [topCategories, setTopCategories] = useState([]);
@@ -43,6 +45,7 @@ export default function StoreProvider({ children }) {
     const getCategories = categoriesServices.get();
     const getUser = userServices.get();
     const getPlaylists = playlistsServices.get();
+    const getPodcasts = podcastsServices.get();
 
     const data = await Promise.all([
       getAlbum,
@@ -51,6 +54,7 @@ export default function StoreProvider({ children }) {
       getCategories,
       getUser,
       getPlaylists,
+      getPodcasts,
     ]);
 
     const [
@@ -60,6 +64,7 @@ export default function StoreProvider({ children }) {
       fetchedCategories,
       fetchedUser,
       fetchedPlaylists,
+      fetchedPodcasts,
     ] = data;
     setAlbums([...fetchedAlbums]);
     setArtists([...fetchedArtists]);
@@ -68,6 +73,7 @@ export default function StoreProvider({ children }) {
     setCategories([...fetchedCategories.slice(4)]);
     setUser({ ...fetchedUser });
     setPlaylists([...fetchedPlaylists]);
+    setPodcasts([...fetchedPodcasts]);
 
     setIsFetching(false);
   }
@@ -109,7 +115,7 @@ export default function StoreProvider({ children }) {
         isFetching,
         user,
         albums,
-        podcasts: [],
+        podcasts,
         artists,
         topArtists,
         playlists,

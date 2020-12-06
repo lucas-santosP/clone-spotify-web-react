@@ -3,6 +3,7 @@ import albumsServices from "./albums";
 import categoriesServices from "./categories";
 import userServices from "./user";
 import playlistsServices from "./playlists";
+import podcastsServices from "./podcasts";
 
 export {
   artistServices,
@@ -10,4 +11,5 @@ export {
   categoriesServices,
   userServices,
   playlistsServices,
+  podcastsServices,
 };

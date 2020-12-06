@@ -41,10 +41,10 @@ const YourLibrary = () => {
           podcasts.map((podcast) => (
             <Card
               className="grid-item"
-              key={podcast.mbid + podcast.name}
+              key={podcast.id}
               title={podcast.name}
-              subtitle={podcast.name}
-              image={podcast.images}
+              subtitle={podcast.publisher}
+              image={podcast.images[1].url}
             />
           ))}
 
