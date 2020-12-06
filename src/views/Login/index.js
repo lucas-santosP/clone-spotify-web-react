@@ -1,6 +1,9 @@
 import React from "react";
 import "./styles.scss";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
+
 const Login = () => {
   const redirectUri = "http://localhost:3000/clone-spotify-web-react";
   const scopes =
@@ -11,8 +14,7 @@ const Login = () => {
       <div className="overlay"></div>
       <div className="login-modal">
         <p className="text">
-          Spotify account permission is required,
-          <br /> after accept you will be redirected back.
+          Spotify login is required, after finishing you will be redirected back.
         </p>
         <a
           className="btn-link"
@@ -23,6 +25,7 @@ const Login = () => {
           )}&response_type=token`}
         >
           Go to Spotify login
+          <FontAwesomeIcon icon={faSignInAlt} />
         </a>
       </div>
     </div>
