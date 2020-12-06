@@ -7,13 +7,24 @@ import Card from "../../components/ui/Card";
 import SectionHeader from "../../components/ui/SectionHeader";
 
 const YourLibrary = () => {
-  const { currentLibraryTab, albums, podcasts, artists } = useStore();
+  const { currentLibraryTab, albums, podcasts, artists, playlists } = useStore();
 
   return (
     <div className="your-library-container">
       <SectionHeader title={currentLibraryTab} />
 
       <div className="grid-cards">
+        {currentLibraryTab === "Playlists" &&
+          playlists.map((playlist) => (
+            <Card
+              className="grid-item"
+              key={playlist.id}
+              title={playlist.name}
+              subtitle={"Playlist"}
+              image={playlist.images[0].url}
+            />
+          ))}
+
         {currentLibraryTab === "Artists" &&
           artists.map((artist) => (
             <Card
