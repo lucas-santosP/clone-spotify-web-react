@@ -5,7 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Login = () => {
-  const redirectUri = "http://localhost:3000/clone-spotify-web-react";
+  const redirectUri =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000/clone-spotify-web-react"
+      : "https://lucas-santosp.github.io/clone-spotify-web-react";
   const scopes =
     "user-library-read user-follow-read user-top-read playlist-read-collaborative";
 
@@ -19,7 +22,9 @@ const Login = () => {
         <a
           className="btn-link"
           href={`https://accounts.spotify.com/authorize?client_id=${
-            process.env.REACT_APP_SPOTIFY_API_KEY
+            process.env.NODE_ENV === "development"
+              ? process.env.REACT_APP_SPOTIFY_API_KEY
+              : process.env.REACT_APP_SPOTIFY_API_KEY_PROD
           }&redirect_uri=${redirectUri}&scope=${encodeURIComponent(
             scopes
           )}&response_type=token`}
