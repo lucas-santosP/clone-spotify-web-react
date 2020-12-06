@@ -7,7 +7,7 @@ export default {
 
       return response.data.artists.items;
     } catch (error) {
-      console.log({ ...error });
+      console.log(error);
     }
   },
 
