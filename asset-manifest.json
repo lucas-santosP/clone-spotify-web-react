@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/clone-spotify-web-react/static/css/main.40653738.chunk.css",
-    "main.js": "/clone-spotify-web-react/static/js/main.b68a5ed5.chunk.js",
-    "main.js.map": "/clone-spotify-web-react/static/js/main.b68a5ed5.chunk.js.map",
+    "main.css": "/clone-spotify-web-react/static/css/main.498d98fe.chunk.css",
+    "main.js": "/clone-spotify-web-react/static/js/main.2be78222.chunk.js",
+    "main.js.map": "/clone-spotify-web-react/static/js/main.2be78222.chunk.js.map",
     "runtime-main.js": "/clone-spotify-web-react/static/js/runtime-main.c0ff7ef8.js",
     "runtime-main.js.map": "/clone-spotify-web-react/static/js/runtime-main.c0ff7ef8.js.map",
-    "static/js/2.7e119fff.chunk.js": "/clone-spotify-web-react/static/js/2.7e119fff.chunk.js",
-    "static/js/2.7e119fff.chunk.js.map": "/clone-spotify-web-react/static/js/2.7e119fff.chunk.js.map",
+    "static/js/2.0ffe2a35.chunk.js": "/clone-spotify-web-react/static/js/2.0ffe2a35.chunk.js",
+    "static/js/2.0ffe2a35.chunk.js.map": "/clone-spotify-web-react/static/js/2.0ffe2a35.chunk.js.map",
     "index.html": "/clone-spotify-web-react/index.html",
-    "precache-manifest.7d3cb5c35e1baf54bf10804e658800f2.js": "/clone-spotify-web-react/precache-manifest.7d3cb5c35e1baf54bf10804e658800f2.js",
+    "precache-manifest.c6150b851f2f948b2d6f0faeb5a8d605.js": "/clone-spotify-web-react/precache-manifest.c6150b851f2f948b2d6f0faeb5a8d605.js",
     "service-worker.js": "/clone-spotify-web-react/service-worker.js",
-    "static/css/main.40653738.chunk.css.map": "/clone-spotify-web-react/static/css/main.40653738.chunk.css.map",
-    "static/js/2.7e119fff.chunk.js.LICENSE.txt": "/clone-spotify-web-react/static/js/2.7e119fff.chunk.js.LICENSE.txt",
+    "static/css/main.498d98fe.chunk.css.map": "/clone-spotify-web-react/static/css/main.498d98fe.chunk.css.map",
+    "static/js/2.0ffe2a35.chunk.js.LICENSE.txt": "/clone-spotify-web-react/static/js/2.0ffe2a35.chunk.js.LICENSE.txt",
     "static/media/clear.641e8e3e.svg": "/clone-spotify-web-react/static/media/clear.641e8e3e.svg",
     "static/media/cover-example.jfif": "/clone-spotify-web-react/static/media/cover-example.11ee6d78.jfif",
     "static/media/home-selected.9fcc0771.svg": "/clone-spotify-web-react/static/media/home-selected.9fcc0771.svg",
@@ -21,13 +21,12 @@
     "static/media/play.ee9ea38a.svg": "/clone-spotify-web-react/static/media/play.ee9ea38a.svg",
     "static/media/search-selected.0ca82257.svg": "/clone-spotify-web-react/static/media/search-selected.0ca82257.svg",
     "static/media/search.abf75b65.svg": "/clone-spotify-web-react/static/media/search.abf75b65.svg",
-    "static/media/spotify-logo.3aa5cb62.svg": "/clone-spotify-web-react/static/media/spotify-logo.3aa5cb62.svg",
-    "static/media/user.jpg": "/clone-spotify-web-react/static/media/user.765c55c5.jpg"
+    "static/media/spotify-logo.3aa5cb62.svg": "/clone-spotify-web-react/static/media/spotify-logo.3aa5cb62.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.c0ff7ef8.js",
-    "static/js/2.7e119fff.chunk.js",
-    "static/css/main.40653738.chunk.css",
-    "static/js/main.b68a5ed5.chunk.js"
+    "static/js/2.0ffe2a35.chunk.js",
+    "static/css/main.498d98fe.chunk.css",
+    "static/js/main.2be78222.chunk.js"
   ]
 }
