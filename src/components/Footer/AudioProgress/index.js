@@ -3,9 +3,9 @@ import "./styles.scss";
 
 import InputRange from "../InputRange";
 
-const AudioProgress = ({ audioLength = "2:00" }) => {
-  const audioLengthInSeconds = minuteToSecond(audioLength);
-
+const AudioProgress = ({ audioLength = 0 }) => {
+  const audioLengthInMinutes = millisecondToMinutes(audioLength);
+  const audioLengthInSeconds = minuteToSecond(audioLengthInMinutes);
   const [currentSecond, setCurrentSecond] = useState(0);
   const [currentPercent, setCurrentPercent] = useState(0);
 
@@ -15,6 +15,14 @@ const AudioProgress = ({ audioLength = "2:00" }) => {
 
     const newSecond = (newPercent * audioLengthInSeconds) / 100;
     setCurrentSecond(newSecond);
+  }
+
+  function millisecondToMinutes(timeInMs) {
+    let h, m, s;
+    h = Math.floor(timeInMs / 1000 / 60 / 60);
+    m = Math.floor((timeInMs / 1000 / 60 / 60 - h) * 60);
+    s = Math.floor(((timeInMs / 1000 / 60 / 60 - h) * 60 - m) * 60);
+    return `${m}:${s}`;
   }
 
   function secondsToMinute(duration) {
@@ -30,32 +38,27 @@ const AudioProgress = ({ audioLength = "2:00" }) => {
   }
 
   function minuteToSecond(minute) {
-    var parts = minute.split(":"),
+    let parts = minute.split(":"),
       minutes = +parts[0],
       seconds = +parts[1];
-    return (minutes * 60 + seconds).toFixed(3);
+    return parseFloat((minutes * 60 + seconds).toFixed(3));
   }
 
   useEffect(() => {
-    const newPercentValue = (currentSecond * 100) / audioLengthInSeconds;
+    let newPercentValue;
+    if (audioLengthInSeconds === 0) newPercentValue = 0;
+    else newPercentValue = (currentSecond * 100) / audioLengthInSeconds;
+
     setCurrentPercent(newPercentValue);
   }, [currentSecond, audioLengthInSeconds]);
 
   return (
     <div className="audio-progress-container">
-      <span className="time-text current-time">
-        {secondsToMinute(currentSecond)}
-      </span>
+      <span className="time-text current-time">{secondsToMinute(currentSecond)}</span>
 
-      <InputRange
-        id={"audio-progress"}
-        value={currentPercent}
-        onChange={updateProgress}
-      />
+      <InputRange value={currentPercent} onChange={updateProgress} />
 
-      <span className="time-text max-time">
-        {secondsToMinute(audioLengthInSeconds)}
-      </span>
+      <span className="time-text max-time">{audioLengthInMinutes}</span>
     </div>
   );
 };

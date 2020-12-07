@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./styles.scss";
 
+import { useStore } from "../../store";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
@@ -10,12 +11,12 @@ import {
   faStepForward,
   faReplyAll,
 } from "@fortawesome/free-solid-svg-icons";
-
 import AudioProgress from "./AudioProgress";
 import AudioInfo from "./AudioInfo";
 import AudioOptions from "./AudioOptions";
 
 const Footer = () => {
+  const { trackPlaying } = useStore();
   const [isPlaying, setIsPlaying] = useState(true);
 
   function togglePlayingState() {
@@ -24,7 +25,7 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      <AudioInfo />
+      <AudioInfo track={trackPlaying} />
 
       <div className="audio-controls">
         <div className="btn-group">
@@ -47,7 +48,7 @@ const Footer = () => {
           </button>
         </div>
 
-        <AudioProgress audioLength={"3:30"} />
+        <AudioProgress audioLength={trackPlaying ? trackPlaying.duration_ms : 0} />
       </div>
 
       <AudioOptions />
