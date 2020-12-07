@@ -55,6 +55,7 @@ const YourLibrary = () => {
               key={album.id}
               title={album.name}
               subtitle={artistsArrayToString(album.artists)}
+              subtitleLink="#"
               image={album.images[1].url}
             />
           ))}

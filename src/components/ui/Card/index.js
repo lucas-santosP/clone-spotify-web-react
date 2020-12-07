@@ -2,8 +2,16 @@ import React from "react";
 import "./styles.scss";
 
 import { ReactComponent as PlayIcon } from "../../../assets/icons/play.svg";
+import defaultCover from "../../../assets/default-cover.webp";
 
-const Card = ({ image, title, subtitle, className, imageRounded = false }) => {
+const Card = ({
+  image,
+  title,
+  subtitle,
+  subtitleLink = "",
+  className,
+  imageRounded = false,
+}) => {
   return (
     <div className={"card-container " + className}>
       <img
@@ -11,8 +19,7 @@ const Card = ({ image, title, subtitle, className, imageRounded = false }) => {
         src={image}
         onError={(e) => {
           e.target.onerror = null;
-          e.target.src =
-            "https://lastfm.freetls.fastly.net/i/u/300x300/4128a6eb29f94943c9d206c08e625904.webp";
+          e.target.src = defaultCover;
         }}
         alt="Cover"
         style={{ borderRadius: imageRounded ? "50%" : "" }}
@@ -21,7 +28,9 @@ const Card = ({ image, title, subtitle, className, imageRounded = false }) => {
       <span className="title" title={title}>
         <span>{title}</span>
       </span>
-      <span className="subtitle">{subtitle}</span>
+      <span className={`subtitle ${subtitleLink ? "subtitle-link" : ""}`}>
+        {subtitle}
+      </span>
 
       <button className="btn-play" title="Play">
         <PlayIcon />

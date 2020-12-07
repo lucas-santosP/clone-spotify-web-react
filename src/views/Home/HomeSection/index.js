@@ -18,6 +18,7 @@ const ContentSection = ({ title = "empty", data = [], type = "album" }) => {
               key={album.id}
               title={album.name}
               subtitle={artistsArrayToString(album.artists)}
+              subtitleLink="#"
               image={album.images[1].url}
             />
           ))}
