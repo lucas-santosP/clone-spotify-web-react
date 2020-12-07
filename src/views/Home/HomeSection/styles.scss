@@ -16,7 +16,7 @@
 
     //Hide cards when collapse
     @for $i from 1 through 10 {
-      @media screen and (max-width:   #{462 + 180 * $i}px) {
+      @media screen and (max-width:   #{462 + 179 * $i}px) {
         .grid-item:nth-of-type(#{$i}) ~ .grid-item {
           display: none;
         }
