@@ -4,6 +4,7 @@ import categoriesServices from "./categories";
 import userServices from "./user";
 import playlistsServices from "./playlists";
 import podcastsServices from "./podcasts";
+import tracksServices from "./tracks";
 
 export {
   artistServices,
@@ -12,4 +13,5 @@ export {
   userServices,
   playlistsServices,
   podcastsServices,
+  tracksServices,
 };
