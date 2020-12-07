@@ -9,6 +9,14 @@ import SectionHeader from "../../components/ui/SectionHeader";
 const YourLibrary = () => {
   const { currentLibraryTab, albums, podcasts, artists, playlists } = useStore();
 
+  function getPlaylistDescription(playlist) {
+    if (playlist.description) {
+      return playlist.description.replace(/<\/?[^>]+(>|$)/g, "");
+    }
+
+    return `By ${playlist.owner.display_name}`;
+  }
+
   return (
     <div className="your-library-container">
       <SectionHeader title={currentLibraryTab} />
@@ -20,7 +28,7 @@ const YourLibrary = () => {
               className="grid-item"
               key={playlist.id}
               title={playlist.name}
-              subtitle={"Playlist"}
+              subtitle={getPlaylistDescription(playlist)}
               image={playlist.images[0].url}
             />
           ))}
