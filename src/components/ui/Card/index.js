@@ -28,9 +28,12 @@ const Card = ({
       <span className="title" title={title}>
         <span>{title}</span>
       </span>
-      <span className={`subtitle ${subtitleLink ? "subtitle-link" : ""}`}>
-        {subtitle}
-      </span>
+
+      <div className="subtitle-div">
+        <span className={`subtitle ${subtitleLink ? "subtitle-link" : ""}`}>
+          {subtitle}
+        </span>
+      </div>
 
       <button className="btn-play" title="Play">
         <PlayIcon />
