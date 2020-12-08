@@ -9,6 +9,7 @@ const Card = ({
   title,
   subtitle,
   subtitleLink = "",
+  subtitleMultiline = false,
   className,
   imageRounded = false,
 }) => {
@@ -29,7 +30,7 @@ const Card = ({
         <span>{title}</span>
       </span>
 
-      <div className="subtitle-div">
+      <div className={`subtitle-div ${subtitleMultiline ? "multiline" : ""}`}>
         <span className={`subtitle ${subtitleLink ? "subtitle-link" : ""}`}>
           {subtitle}
         </span>

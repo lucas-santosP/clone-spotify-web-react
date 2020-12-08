@@ -3,7 +3,7 @@
 
 .card-container {
   @extend %flex-center;
-  $card-padding: 1.2rem;
+  $card-padding: 1rem;
   position: relative;
   flex-direction: column;
   overflow: hidden;
@@ -31,6 +31,7 @@
     height: 150px;
     object-fit: cover;
     margin-bottom: 1rem;
+    overflow: hidden;
     box-shadow: 0px 5px 20px -6px rgba(0, 0, 0, 0.75);
   }
 
@@ -50,11 +51,16 @@
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
     line-height: 1.05rem;
     color: $light-gray;
+    white-space: nowrap;
+    height: 2.1rem;
+    &.multiline {
+      white-space: normal;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+    }
 
     > .subtitle {
       width: 100%;

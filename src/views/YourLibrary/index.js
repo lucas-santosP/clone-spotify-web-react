@@ -30,6 +30,7 @@ const YourLibrary = () => {
               title={playlist.name}
               subtitle={getPlaylistDescription(playlist)}
               image={playlist.images[0].url}
+              subtitleMultiline={true}
             />
           ))}
 
