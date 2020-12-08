@@ -12,6 +12,16 @@ const Login = () => {
   const scopes =
     "user-library-read user-follow-read user-top-read playlist-read-collaborative";
 
+  function redirectToLogin() {
+    window.location = `https://accounts.spotify.com/authorize?client_id=${
+      process.env.NODE_ENV === "development"
+        ? process.env.REACT_APP_SPOTIFY_API_KEY
+        : process.env.REACT_APP_SPOTIFY_API_KEY_PROD
+    }&redirect_uri=${redirectUri}&scope=${encodeURIComponent(
+      scopes
+    )}&response_type=token`;
+  }
+
   return (
     <div className="login-container">
       <div className="overlay"></div>
@@ -19,19 +29,10 @@ const Login = () => {
         <p className="text">
           Spotify login is required, after finishing you will be redirected back.
         </p>
-        <a
-          className="btn-link"
-          href={`https://accounts.spotify.com/authorize?client_id=${
-            process.env.NODE_ENV === "development"
-              ? process.env.REACT_APP_SPOTIFY_API_KEY
-              : process.env.REACT_APP_SPOTIFY_API_KEY_PROD
-          }&redirect_uri=${redirectUri}&scope=${encodeURIComponent(
-            scopes
-          )}&response_type=token`}
-        >
+        <button className="btn-link" onClick={redirectToLogin}>
           Go to Spotify login
           <FontAwesomeIcon icon={faSignInAlt} />
-        </a>
+        </button>
       </div>
     </div>
   );

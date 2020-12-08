@@ -39,13 +39,16 @@
 
     > .btn-link {
       @extend %flex-center;
+      @extend %base-transition;
       width: 100%;
       color: #ffff;
       padding: 1rem;
       background-color: $light-green;
       border-radius: 5px;
       &:hover {
-        filter: brightness(120%);
+        cursor: pointer;
+        text-decoration: underline;
+        filter: brightness(115%);
       }
 
       svg {
