@@ -35,7 +35,6 @@ export default function StoreProvider({ children }) {
   const [podcasts, setPodcasts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [playlists, setPlaylists] = useState([]);
-
   const [trackPlaying, setTrackPlaying] = useState(null);
   const [topCategories, setTopCategories] = useState([]);
   const [currentLibraryTab, setCurrentLibraryTab] = useState(libraryTabs[0]);
