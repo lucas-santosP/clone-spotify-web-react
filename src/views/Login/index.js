@@ -10,7 +10,7 @@ const Login = () => {
       ? "http://localhost:3000/clone-spotify-web-react"
       : "https://lucas-santosp.github.io/clone-spotify-web-react";
   const scopes =
-    "user-library-read user-follow-read user-top-read playlist-read-collaborative";
+    "user-library-read user-follow-read user-top-read playlist-read-collaborative playlist-read-private";
 
   function redirectToLogin() {
     window.location = `https://accounts.spotify.com/authorize?client_id=${
