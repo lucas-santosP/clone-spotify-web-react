@@ -1,13 +1,37 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# UI clone - Spotify Web
 
-## Available Scripts
+An UI clone of [Spotify Web](https://open.spotify.com) with login by Spotify API to display public user data, such as favorite songs, album, playlists, artists and etc.
 
-In the project directory, you can run:
+## Build With
 
-### `yarn start`
+- [React](https://reactjs.org) - A declarative, efficient, and flexible JavaScript library for building user interfaces.
+- [React Hooks](https://reactjs.org/docs/hooks-intro.html) - A new addition in React 16.8. That allows to use state and other React features without writing a class.
+- [Axios](https://github.com/axios/axios) - A promise based HTTP client for the browser and node.js.
+- [Spotify API](https://developer.spotify.com/documentation/web-api/) - Official Spotify API based on REST principles, that return JSON metadata about music artists, albums, and tracks, directly from the Spotify Data Catalogue..
+- [SCSS](https://sass-lang.com) - The most mature, stable, and powerful professional grade CSS extension language in the world.
+- [Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies) - A small piece of data stored on the user's computer by the web browser. That allows data persistence even after refreshing the page.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Demo
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Demonstration online by [GitHub Pages](https://pages.github.com) on this [link](https://lucas-santosp.github.io/clone-spotify-web-react/).
+
+## Installation
+
+1 - Get a free Spotify API Key [here](https://developer.spotify.com/dashboard/login).
+
+2 - Create a file in the root folder named .env and write:
+
+```
+REACT_APP_SPOTIFY_API_KEY=<your-key-here>
+```
+
+3 - Then with NPM install the packages and run the localhost server:
+
+```
+npm install
+npm run start
+```
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details
