@@ -9,9 +9,9 @@ An UI clone of [Spotify Web](https://open.spotify.com) with login by Spotify API
 - [React](https://reactjs.org) - A declarative, efficient, and flexible JavaScript library for building user interfaces.
 - [React Hooks](https://reactjs.org/docs/hooks-intro.html) - A new addition in React 16.8. That allows to use state and other React features without writing a class.
 - [Axios](https://github.com/axios/axios) - A promise based HTTP client for the browser and node.js.
-- [Spotify API](https://developer.spotify.com/documentation/web-api/) - Official Spotify API based on REST principles, that return JSON metadata about music artists, albums, and tracks, directly from the Spotify Data Catalogue..
+- [Spotify API](https://developer.spotify.com/documentation/web-api/) - Official Spotify API based on REST principles, that return JSON metadata about music artists, albums, and tracks, directly from the Spotify Data Catalogue.
 - [SCSS](https://sass-lang.com) - The most mature, stable, and powerful professional grade CSS extension language in the world.
-- [Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies) - A small piece of data stored on the user's computer by the web browser. That allows data persistence even after refreshing the page.
+- [Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies) - Small piece of data stored on the user's computer by the web browser. That allows data persistence even after refreshing the page.
 
 ## Demo
 
