@@ -2,6 +2,8 @@
 
 An UI clone of [Spotify Web](https://open.spotify.com) with login by Spotify API to display public user data, such as favorite songs, album, playlists, artists and etc.
 
+![Demo preview](./src/assets/demo-preview.png)
+
 ## Build With
 
 - [React](https://reactjs.org) - A declarative, efficient, and flexible JavaScript library for building user interfaces.
@@ -19,7 +21,7 @@ Demonstration online by [GitHub Pages](https://pages.github.com) on this [link](
 
 1 - Get a free Spotify API Key [here](https://developer.spotify.com/dashboard/login).
 
-2 - Create a file in the root folder named .env and write:
+2 - Create a file in the root folder named .env and type:
 
 ```
 REACT_APP_SPOTIFY_API_KEY=<your-key-here>
