@@ -21,28 +21,34 @@
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 105;
+    max-width: 500px;
+    min-width: 350px;
+    padding: 2rem 3rem;
     background-color: rgba(12, 12, 12, 0.541);
     border-radius: 10px;
-    padding: 2rem 3rem;
     color: white;
-    animation-duration: 400ms;
-    animation-timing-function: ease-in;
-    animation-fill-mode: forwards;
-    animation-name: fadeIn;
+    animation: fadeIn 400ms ease-in forwards;
 
-    > p.text {
-      width: 300px;
-      font-size: 1.1rem;
-      line-height: 2rem;
-      margin-bottom: 1.5rem;
+    > .title {
+      font-size: 1rem;
+      line-height: 1.7rem;
+      margin-bottom: 1rem;
+    }
+
+    > .subtitle {
+      font-size: 0.95rem;
+      line-height: 1.3rem;
+      font-weight: normal;
+      margin-bottom: 2rem;
     }
 
     > .btn-link {
       @extend %flex-center;
       @extend %base-transition;
-      width: 100%;
+      width: max-content;
+      padding: 1rem 3rem;
       color: #ffff;
-      padding: 1rem;
+      font-size: 0.9rem;
       background-color: $light-green;
       border-radius: 5px;
       &:hover {
