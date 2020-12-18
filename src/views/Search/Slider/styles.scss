@@ -22,6 +22,7 @@
 
   > ul.slider-track > li.slide {
     @extend %flex-center;
+    position: relative;
     align-items: flex-end;
     min-width: 300px;
     height: 100%;
