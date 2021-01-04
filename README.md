@@ -4,7 +4,7 @@ An UI clone of [Spotify Web](https://open.spotify.com) with login by Spotify API
 
 ![Demo preview](./src/assets/demo-preview.png)
 
-## Build With
+## Built With
 
 - [React](https://reactjs.org) - A declarative, efficient, and flexible JavaScript library for building user interfaces.
 - [React Hooks](https://reactjs.org/docs/hooks-intro.html) - A new addition in React 16.8. That allows to use state and other React features without writing a class.
