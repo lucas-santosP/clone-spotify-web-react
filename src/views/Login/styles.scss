@@ -1,5 +1,5 @@
-@import "../../scss/extends.scss";
-@import "../../scss/variables.scss";
+@import "@/scss/extends.scss";
+@import "@/scss/variables.scss";
 
 .login-container {
   > .overlay {
@@ -15,6 +15,7 @@
 
   > .login-modal {
     @extend %flex-center;
+    @extend %fade-in-animation;
     flex-direction: column;
     position: fixed;
     left: 50%;
@@ -27,7 +28,6 @@
     background-color: rgba(12, 12, 12, 0.541);
     border-radius: 10px;
     color: white;
-    animation: fadeIn 400ms ease-in forwards;
 
     > .title {
       font-size: 1rem;
@@ -61,23 +61,5 @@
         margin: 0 0.5rem;
       }
     }
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
   }
 }

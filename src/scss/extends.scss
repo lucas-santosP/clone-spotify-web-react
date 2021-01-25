@@ -18,5 +18,18 @@
 }
 
 %base-transition {
-  transition: all 0.2s ease;
+  transition: all 200ms ease;
+}
+
+%fade-in-animation {
+  animation: fadeIn 300ms ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
