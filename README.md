@@ -25,7 +25,8 @@ Demonstration online by [GitHub Pages](https://pages.github.com) on this [link](
 2 - Create a file in the root folder named .env and type:
 
 ```
-REACT_APP_SPOTIFY_API_KEY=<your-key-here>
+REACT_APP_SPOTIFY_API_KEY=<your-key-here>       // for local server
+REACT_APP_SPOTIFY_API_KEY_PROD=<your-key-here>  // for production
 ```
 
 3 - Then with NPM install the packages and run the localhost server:
