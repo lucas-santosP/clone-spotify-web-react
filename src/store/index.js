@@ -12,22 +12,11 @@ import {
 import { cookies } from "../common/utils";
 
 const StoreContext = createContext();
-
-const hash = window.location.hash
-  .substring(1)
-  .split("&")
-  .reduce(function (initial, item) {
-    if (item) {
-      let parts = item.split("=");
-      initial[parts[0]] = decodeURIComponent(parts[1]);
-    }
-    return initial;
-  }, {});
 const libraryTabs = ["Playlists", "Podcasts", "Artists", "Albums"];
 
 export default function StoreProvider({ children }) {
   const [token, setToken] = useState("");
-  const [isFetching, setIsFetching] = useState(true);
+  const [onLoading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
   const [albums, setAlbums] = useState([]);
   const [artists, setArtists] = useState([]);
@@ -40,7 +29,7 @@ export default function StoreProvider({ children }) {
   const [currentLibraryTab, setCurrentLibraryTab] = useState(libraryTabs[0]);
 
   async function fetchAll() {
-    setIsFetching(true);
+    setLoading(true);
     const getAlbum = albumsServices.get();
     const getArtists = artistServices.get();
     const getTopArtists = artistServices.getTop();
@@ -81,11 +70,11 @@ export default function StoreProvider({ children }) {
     setPodcasts([...fetchedPodcasts]);
     setTrackPlaying({ ...fetchedTopTracks[0] });
 
-    setIsFetching(false);
+    setLoading(false);
   }
 
   function clearStore() {
-    setIsFetching(false);
+    setLoading(false);
     setToken("");
     setUser(null);
     setAlbums([]);
@@ -98,29 +87,31 @@ export default function StoreProvider({ children }) {
     setTrackPlaying(null);
   }
 
-  // ou useLayoutEffect
   useEffect(() => {
-    const cookieToken = cookies.get("token");
-    if (cookieToken) {
-      setToken(cookieToken);
-    } else if (hash.access_token) {
-      setToken(() => hash.access_token);
-      cookies.set("token", hash.access_token);
-      hash.access_token = "";
+    setLoading(true);
+    const storedToken = cookies.get("token");
+    if (storedToken) {
+      setToken(storedToken);
     }
-
     if (token) {
       api.defaults.headers.common["Authorization"] = "Bearer " + token;
       fetchAll();
+    } else {
+      setLoading(false);
+      setTimeout(() => {
+      }, 500);
     }
   }, [token]);
+
 
   return (
     <StoreContext.Provider
       value={{
         token,
+        setToken,
         clearStore,
-        isFetching,
+        onLoading,
+        setLoading,
         user,
         albums,
         podcasts,
