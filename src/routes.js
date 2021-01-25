@@ -2,14 +2,12 @@ import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { useStore } from "./store";
 
-import LoadingView from "./components/ui/LoadingView";
-import Sidebar from "./components/Sidebar";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Login from "./views/Login";
-import Home from "./views/Home";
-import Search from "./views/Search";
-import YourLibrary from "./views/YourLibrary";
+import { Header, Sidebar, Footer } from "@/components/layout"; 
+import LoadingView from "@/components/ui/LoadingView";
+import Login from "@/views/Login";
+import Home from "@/views/Home";
+import Search from "@/views/Search";
+import YourLibrary from "@/views/YourLibrary";
 
 function Routes() {
   const { token, isFetching } = useStore();
