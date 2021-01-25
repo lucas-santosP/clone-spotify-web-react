@@ -3,7 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://lucas-santosp.github.io/clone-spotify-web-react",
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "deploy": "gh-pages -d build",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
+    "@craco/craco": "^6.0.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-regular-svg-icons": "^5.14.0",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
@@ -13,16 +20,13 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "deploy": "gh-pages -d build",
-    "eject": "react-scripts eject"
+    "react-scripts": "4.0.1"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "import/no-anonymous-default-export": "off"
+    }
   },
   "browserslist": {
     "production": [
