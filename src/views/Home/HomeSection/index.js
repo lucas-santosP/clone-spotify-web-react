@@ -1,9 +1,8 @@
 import React from "react";
 import "./styles.scss";
 
-import Card from "../../../components/ui/Card";
-import SectionHeader from "../../../components/ui/SectionHeader";
-import { artistsArrayToString } from "../../../common/utils";
+import { Card, SectionHeader } from "@/components/ui"; 
+import { artistsArrayToString } from "@utils";
 
 const ContentSection = ({ title = "empty", data = [], type = "album" }) => {
   return (

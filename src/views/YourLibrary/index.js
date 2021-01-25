@@ -1,10 +1,9 @@
 import React from "react";
 import "./styles.scss";
 
-import { useStore } from "../../store";
-import { artistsArrayToString } from "../../common/utils";
-import Card from "../../components/ui/Card";
-import SectionHeader from "../../components/ui/SectionHeader";
+import { useStore } from "@/store";
+import { artistsArrayToString } from "@utils";
+import { Card, SectionHeader } from "@/components/ui"; 
 
 const YourLibrary = () => {
   const { currentLibraryTab, albums, podcasts, artists, playlists } = useStore();

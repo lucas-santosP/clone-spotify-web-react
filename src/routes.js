@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { useStore } from "./store";
 
 import { Header, Sidebar, Footer } from "@/components/layout"; 
-import LoadingView from "@/components/ui/LoadingView";
+import { LoadingView } from "@/components/ui";
 import Login from "@/views/Login";
 import Home from "@/views/Home";
 import Search from "@/views/Search";

@@ -1,7 +1,8 @@
 import React from "react";
 import "./styles.scss";
-import { useStore } from "../../store";
-import SectionHeader from "../../components/ui/SectionHeader";
+
+import { useStore } from "@/store";
+import { SectionHeader } from "@/components/ui";
 import Slider from "./Slider";
 import CategoriesGrid from "./CategoriesGrid";
 
