@@ -55,7 +55,7 @@ const Login = () => {
           Spotify login is required to continue, after finishing you will be redirected back.
         </h1>
         <h2 className="subtitle">
-          Note that, all data accessed by this system are read-only and non-private.
+          Note that, all data accessed by this app are read-only and non-private.
           <b> We will not have access to your email.</b> You will be able to check all the
           information accessed before accepting it.
         </h2>
