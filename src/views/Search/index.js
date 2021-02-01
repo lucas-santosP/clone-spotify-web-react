@@ -12,7 +12,7 @@ const Search = () => {
   return (
     <div className="search-container">
       <section className="section">
-        <SectionHeader title="Your top genres" />
+        <SectionHeader title="Top genres" />
         <Slider slides={topCategories} />
       </section>
 
