@@ -6,6 +6,7 @@ import { useStore } from "@/store";
 import { cookies } from "@utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
+import { Logo } from "@/components/ui";
 
 const scopes = `user-library-read user-follow-read user-top-read playlist-read-collaborative playlist-read-private`;
 const redirectUri =
@@ -51,14 +52,20 @@ const Login = () => {
     <div className="login-container">
       <div className="overlay"></div>
       <div className="login-modal">
-        <h1 className="title">
-          Spotify login is required to continue, after finishing you will be redirected back.
-        </h1>
-        <h2 className="subtitle">
-          Note that, all data accessed by this app are read-only and non-private.
-          <b> We will not have access to your email.</b> You will be able to check all the
-          information accessed before accepting it.
-        </h2>
+        <Logo className="logo" />
+        <h1 className="title">Hello! This is an UI clone of Spotify web player</h1>
+        <section className="paragraphs">
+          <p>
+            Spotify login is required to be able to display user data from their API. After
+            finishing you will be redirected back.
+          </p>
+          <p>
+            Note: All data accessed by this app are read-only and non-private.
+            <b> We will not have access to your email.</b> You will be able to check all the
+            information accessed before accepting it.
+          </p>
+        </section>
+
         <button className="btn-link" onClick={goToSpotifyLogin}>
           Go to Spotify login
           <FontAwesomeIcon icon={faSignInAlt} />
