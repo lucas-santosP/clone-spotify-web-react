@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/clone-spotify-web-react/static/css/main.1ac20dc4.chunk.css",
-    "main.js": "/clone-spotify-web-react/static/js/main.d2edd866.chunk.js",
-    "main.js.map": "/clone-spotify-web-react/static/js/main.d2edd866.chunk.js.map",
+    "main.js": "/clone-spotify-web-react/static/js/main.51bcf403.chunk.js",
+    "main.js.map": "/clone-spotify-web-react/static/js/main.51bcf403.chunk.js.map",
     "runtime-main.js": "/clone-spotify-web-react/static/js/runtime-main.ce40eed6.js",
     "runtime-main.js.map": "/clone-spotify-web-react/static/js/runtime-main.ce40eed6.js.map",
     "static/js/2.0c9d2a0a.chunk.js": "/clone-spotify-web-react/static/js/2.0c9d2a0a.chunk.js",
@@ -25,6 +25,6 @@
     "static/js/runtime-main.ce40eed6.js",
     "static/js/2.0c9d2a0a.chunk.js",
     "static/css/main.1ac20dc4.chunk.css",
-    "static/js/main.d2edd866.chunk.js"
+    "static/js/main.51bcf403.chunk.js"
   ]
 }
