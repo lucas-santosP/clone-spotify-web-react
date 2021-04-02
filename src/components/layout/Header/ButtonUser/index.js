@@ -5,6 +5,7 @@ import { useStore } from "@/store";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 import DropdownUser from "../DropdownUser";
+import defaultCover from "@/assets/default-cover.webp";
 
 const HeaderButtonUser = () => {
   const { user } = useStore();
@@ -25,12 +26,16 @@ const HeaderButtonUser = () => {
   }
 
   return user ? (
-    <button
-      className={`btn-user ${dropVisibility ? "drop-is-open" : ""}`}
-      onClick={toggleDropdown}
-    >
+    <button className={`btn-user ${dropVisibility ? "drop-is-open" : ""}`} onClick={toggleDropdown}>
       <div className="profile-pic-container">
-        <img src={user.profilePic} alt="Profile" />
+        <img
+          src={user.profilePic}
+          alt="Profile"
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = defaultCover;
+          }}
+        />
       </div>
 
       <span className="user-name">{user.name}</span>

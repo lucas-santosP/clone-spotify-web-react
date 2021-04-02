@@ -20,7 +20,7 @@ const AudioInfo = ({ track }) => {
         <>
           <img
             className="img-cover"
-            src={track.album.images[1].url}
+            src={track.album?.images[1]?.url|| ""}
             onError={(e) => {
               e.target.onerror = null;
               e.target.src = defaultCover;

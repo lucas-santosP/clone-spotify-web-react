@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./styles.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import defaultCover from "@/assets/default-cover.webp";
 
 const Slider = ({ slides }) => {
   function slideTo(direction) {
@@ -62,7 +63,11 @@ const Slider = ({ slides }) => {
           <li className="slide" key={slide.id}>
             <img
               className="background-img"
-              src={slide.icons[0].url}
+              src={slide?.icons[0]?.url || ""}
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = defaultCover;
+              }}
               alt={`${slide.name} cover`}
             />
             <span className="slide-text">{slide.name}</span>

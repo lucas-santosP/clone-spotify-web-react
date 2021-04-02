@@ -3,7 +3,7 @@ import "./styles.scss";
 
 import { useStore } from "@/store";
 import { artistsArrayToString } from "@utils";
-import { Card, SectionHeader } from "@/components/ui"; 
+import { Card, SectionHeader } from "@/components/ui";
 
 const YourLibrary = () => {
   const { currentLibraryTab, albums, podcasts, artists, playlists } = useStore();
@@ -28,7 +28,7 @@ const YourLibrary = () => {
               key={playlist.id}
               title={playlist.name}
               subtitle={getPlaylistDescription(playlist)}
-              image={playlist.images[0].url}
+              image={playlist?.images[0]?.url}
               subtitleMultiline={true}
             />
           ))}
@@ -40,7 +40,7 @@ const YourLibrary = () => {
               key={artist.id}
               title={artist.name}
               subtitle="Artist"
-              image={artist.images[1].url}
+              image={artist?.images[1]?.url}
               imageRounded={true}
             />
           ))}
@@ -52,7 +52,7 @@ const YourLibrary = () => {
               key={podcast.id}
               title={podcast.name}
               subtitle={podcast.publisher}
-              image={podcast.images[1].url}
+              image={podcast?.images[1]?.url}
             />
           ))}
 
@@ -64,7 +64,7 @@ const YourLibrary = () => {
               title={album.name}
               subtitle={artistsArrayToString(album.artists)}
               subtitleLink="#"
-              image={album.images[1].url}
+              image={album?.images[1]?.url}
             />
           ))}
       </div>

@@ -1,11 +1,11 @@
 import React from "react";
 import "./styles.scss";
 
-import { ReactComponent as PlayIcon } from "../../../assets/icons/play.svg";
-import defaultCover from "../../../assets/default-cover.webp";
+import { ReactComponent as PlayIcon } from "@/assets/icons/play.svg";
+import defaultCover from "@/assets/default-cover.webp";
 
 const Card = ({
-  image,
+  image="",
   title,
   subtitle,
   subtitleLink = "",

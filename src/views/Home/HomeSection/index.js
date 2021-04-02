@@ -18,7 +18,7 @@ const ContentSection = ({ title = "empty", data = [], type = "album" }) => {
               title={album.name}
               subtitle={artistsArrayToString(album.artists)}
               subtitleLink="#"
-              image={album.images[1].url}
+              image={album?.images[1]?.url}
             />
           ))}
 
@@ -29,7 +29,7 @@ const ContentSection = ({ title = "empty", data = [], type = "album" }) => {
               key={artist.id}
               title={artist.name}
               subtitle={"Artist"}
-              image={artist.images[1].url}
+              image={artist?.images[1]?.url}
               imageRounded={true}
             />
           ))}
