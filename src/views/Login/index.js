@@ -8,11 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 import { Logo } from "@/components/ui";
 
-const scopes = `user-library-read user-follow-read user-top-read playlist-read-collaborative playlist-read-private`;
-const redirectUri =
-  process.env.NODE_ENV === "development"
-    ? `http://localhost:3000/clone-spotify-web-react/login`
-    : `https://lucas-santosp.github.io/clone-spotify-web-react/login`;
+const scopes =  `user-library-read user-follow-read user-top-read playlist-read-collaborative playlist-read-private`;
+const baseAPILocation = "https://accounts.spotify.com/authorize?response_type=token&";
 
 const Login = () => {
   const history = useHistory();
@@ -33,11 +30,18 @@ const Login = () => {
   }
 
   function goToSpotifyLogin() {
-    window.location = `https://accounts.spotify.com/authorize?client_id=${
-      process.env.NODE_ENV === "development"
-        ? process.env.REACT_APP_SPOTIFY_API_KEY
-        : process.env.REACT_APP_SPOTIFY_API_KEY_PROD
-    }&redirect_uri=${redirectUri}&scope=${encodeURIComponent(scopes)}&response_type=token`;
+    let key, redirectUri;
+    const encodedScopes = encodeURIComponent(scopes);
+
+    if (process.env.NODE_ENV === "development") {
+      key = process.env.REACT_APP_API_KEY;
+      redirectUri = process.env.REACT_APP_REDIRECT_URI;
+    } else {
+      key = process.env.REACT_APP_API_KEY_PROD;
+      redirectUri = process.env.REACT_APP_REDIRECT_URI_PROD;
+    }
+
+    window.location = `${baseAPILocation}client_id=${key}&redirect_uri=${redirectUri}&scope=${encodedScopes}`;
   }
 
   useEffect(() => {
