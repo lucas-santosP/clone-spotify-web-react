@@ -25,15 +25,32 @@ Demonstration online by [GitHub Pages](https://pages.github.com) on this [link](
 2 - Create a file in the root folder named .env and type:
 
 ```
-REACT_APP_SPOTIFY_API_KEY=<your-key-here>       // for local server
-REACT_APP_SPOTIFY_API_KEY_PROD=<your-key-here>  // for production
+REACT_APP_API_KEY=<your-key-here>
+REACT_APP_REDIRECT_URI=<your-redirect-uri>  // Ex: http://localhost:3000/clone-spotify-web-react/login
 ```
+
+<small> Note that the "/login" path at the end of the redirect URI is required.</small>
 
 3 - Then with NPM install the packages and run the localhost server:
 
 ```
 npm install
 npm run start
+```
+
+### Production
+
+1 - Following the installation steps but add these other environment variables in the .env file:
+
+```
+REACT_APP_API_KEY_PROD=<your-key-here>
+REACT_APP_REDIRECT_URI_PROD=<your-key-here>
+```
+
+2 - And then with NPM run the build script:
+
+```
+npm run build
 ```
 
 ## License
