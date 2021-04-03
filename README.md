@@ -38,7 +38,7 @@ npm install
 npm run start
 ```
 
-### Production
+## Production
 
 1 - Following the installation steps but add these other environment variables in the .env file:
 
