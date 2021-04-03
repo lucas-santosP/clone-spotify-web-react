@@ -1,13 +1,13 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { useStore } from "./store";
 
 import { Header, Sidebar, Footer } from "@/components/layout";
 import { LoadingView } from "@/components/ui";
-import Login from "@/views/Login";
-import Home from "@/views/Home";
-import Search from "@/views/Search";
-import YourLibrary from "@/views/YourLibrary";
+const Home = React.lazy(() => import("@/views/Home"));
+const Login = React.lazy(() => import("@/views/Login"));
+const Search = React.lazy(() => import("@/views/Search"));
+const YourLibrary = React.lazy(() => import("@/views/YourLibrary"));
 
 function Routes() {
   const { token, onLoading } = useStore();
@@ -22,7 +22,7 @@ function Routes() {
         {onLoading ? (
           <LoadingView />
         ) : (
-          <>
+          <Suspense fallback={null}>
             {token ? (
               <Switch>
                 <Route exact strict path="/search" component={Search} />
@@ -36,7 +36,7 @@ function Routes() {
                 <Redirect to="/login" />
               </Switch>
             )}
-          </>
+          </Suspense>
         )}
       </main>
     </BrowserRouter>
