@@ -1,0 +1,2 @@
+.your-library-container{animation:fadeIn .3s ease-in}@keyframes fadeIn{0%{opacity:0}to{opacity:1}}.your-library-container>.grid-cards{width:100%;max-width:1950px;display:grid;grid-gap:16px;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));grid-template-rows:auto 1fr;margin-bottom:2rem}
+/*# sourceMappingURL=6.a57a33aa.chunk.css.map */
