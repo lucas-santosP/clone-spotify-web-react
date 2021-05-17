@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 import { Logo } from "@/components/ui";
 
-const scopes =  `user-library-read user-follow-read user-top-read playlist-read-collaborative playlist-read-private`;
+const scopes = `user-library-read user-follow-read user-top-read playlist-read-collaborative playlist-read-private`;
 const baseAPILocation = "https://accounts.spotify.com/authorize?response_type=token&";
 
 const Login = () => {
@@ -55,18 +55,27 @@ const Login = () => {
   return (
     <div className="login-container">
       <div className="overlay"></div>
+
       <div className="login-modal">
         <Logo className="logo" />
         <h1 className="title">Hello! This is an UI clone of Spotify web player</h1>
-        <section className="paragraphs">
+        <section className="section">
           <p>
             Spotify login is required to be able to display user data from their API. After
             finishing you will be redirected back.
           </p>
           <p>
             Note: All data accessed by this app are read-only and non-private.
-            <b> We will not have access to your email.</b> You will be able to check all the
-            information accessed before accepting it.
+            <b> We will not have access to your email</b>, the app code can be found{" "}
+            <a
+              href="https://github.com/lucas-santosP/clone-spotify-web-react"
+              target="_blank"
+              title="Go to the repository"
+              rel="noreferrer"
+            >
+              here
+            </a>
+            . And you'll be able to check all the information accessed before accepting it.
           </p>
         </section>
 
